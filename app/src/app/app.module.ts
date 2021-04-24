@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SwipeComponent } from './swipe/swipe.component';
 import { AddPlantComponent } from './add-plant/add-plant.component';
+import { FirstPageComponent } from './first-page/first-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AddPlantComponent } from './add-plant/add-plant.component';
     RegisterComponent,
     ProfileComponent,
     SwipeComponent,
-    AddPlantComponent
+    AddPlantComponent,
+    FirstPageComponent
   ],
   imports: [
     BrowserModule,
