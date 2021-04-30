@@ -10,6 +10,7 @@ import { SwipeComponent } from './swipe/swipe.component';
 import { AddPlantComponent } from './add-plant/add-plant.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { NastavitveComponent } from './nastavitve/nastavitve.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NastavitveComponent } from './nastavitve/nastavitve.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
