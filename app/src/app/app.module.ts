@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SwipeComponent } from './swipe/swipe.component';
 import { AddPlantComponent } from './add-plant/add-plant.component';
 import { FirstPageComponent } from './first-page/first-page.component';
+import { NastavitveComponent } from './nastavitve/nastavitve.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FirstPageComponent } from './first-page/first-page.component';
     ProfileComponent,
     SwipeComponent,
     AddPlantComponent,
-    FirstPageComponent
+    FirstPageComponent,
+    NastavitveComponent
   ],
   imports: [
     BrowserModule,
