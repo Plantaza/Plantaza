@@ -63,3 +63,9 @@ const uporabnikiIzbrisiIzbranega = (req, res) => {
       });
   }
 };
+
+module.exports = {
+    uporabnikiSeznam,
+    uporabnikiPreberiIzbranega,
+    uporabnikiIzbrisiIzbranega
+}
