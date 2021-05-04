@@ -6,7 +6,9 @@ const getRastlina = (req, res) => {
 }
 
 const getRastline = (req, res) => {
+    console.log("Get rastline")
     res.status(200);
+    res.send("Hello world");
 }
 
 const postRastlina = (req, res) => {

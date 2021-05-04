@@ -10,4 +10,5 @@ const rastlineShema = new mongoose.Schema({
     lastnikObjectId: {type: String, required:true}
 });
 
+
 mongoose.model('Rastline', rastlineShema , 'Rastline');
