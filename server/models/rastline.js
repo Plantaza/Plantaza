@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const rastlineShema = new mongoose.Schema({
+    _id: { type: String, required: true },
     imeRastiline: { type: String, required: true },
     kategorija: {type:String, required:true},
     podkategorija: {type:String, required: false},

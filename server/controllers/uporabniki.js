@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
-const uporabnikiShema = mongoose.model('Uporabniki')
+const Uporabniki = mongoose.model('Uporabniki')
 
 const uporabnikiSeznam = (req, res) => {
   Uporabniki

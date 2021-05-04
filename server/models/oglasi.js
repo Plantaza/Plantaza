@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
 const { Rastline } = require('../controllers/rastline');
 const { Uporabniki } = require('../controllers/uporabniki');
 
-const oglasiSchema = new mongoose.Schema({
+const oglasiShema = new mongoose.Schema({
   _id: { type: String, required: true },
-  rastlina: { type: Rastline, required: true },
-  uporabnik: { type: Uporabniki, required: true}
+  idRastline: { type: String, required: true },
+  idUporabnika: { type: String, required: true},
+  slika: { type: String, required: false }
 })
 
-mongoose.model('Uporabniki', oglasiShema, 'Uporabniki')
+mongoose.model('Oglasi', oglasiShema, 'Oglasi')
