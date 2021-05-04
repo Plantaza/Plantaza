@@ -55,3 +55,4 @@ process.on('SIGTERM', () => {
 
 //dodaj vse modele
 require('./models/uporabniki');
+require('./models/rastline');

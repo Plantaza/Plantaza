@@ -1,9 +1,10 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
 const mongoose = require('mongoose');
-const dbConfig = require('./config/database.config');
-const routes = require('./routes/base.route');
+var debug = require('debug')('server:server');
 const passport = require('passport');
 const app = express();
 
@@ -11,7 +12,7 @@ require('./db');
 require('./passport');
 
 //var indexRouter = require('./app_server/routes/index');
-var indexApi = require('./app_api/routes/index');
+var indexApi = require('./routes/index');
 
 app.use(bodyParser.json)
 app.use(bodyParser.urlencoded({extended: true}))
@@ -24,7 +25,7 @@ app.use('/api', (req, res, next) => {
     next();
 });
 
-app.use('/api', routes)
+app.use('/api', indexApi)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -9,6 +9,11 @@ const avtentikacija = jwt({
 });
 
 const ctrlAvtentikacija = require('../controllers/avtentikacija');
+const ctrlRastline = require('../controllers/rastline');
+
+router.post('/rastlina',avtentikacija,ctrlRastline.postRastlina)
+
+router.get('/rastlina',avtentikacija,ctrlRastline.getRastline)
 
 
 router.post('/registracija', ctrlAvtentikacija.registracija);

@@ -1,7 +1,7 @@
 const passport = require('passport');
 const LokalnaStrategija = require('passport-local').Strategy;
 const mongoose = require('mongoose');
-const Uporabnik = mongoose.model('Uporabnik');
+const Uporabnik = mongoose.model('Uporabniki');
 
 passport.use(
   new LokalnaStrategija(
