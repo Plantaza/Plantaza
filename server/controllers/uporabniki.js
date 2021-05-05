@@ -45,7 +45,7 @@ const uporabnikiPreberiIzbranega = (req, res) => {
       });
 };
 
-const uporabnikiIzbrisiIzbranega = (req, res) => {
+const izbrisiIzbranega = (req, res) => {
   const {idUporabnik} = req.params;
   if (idUporabnika) {
       Uporabniki
@@ -66,6 +66,6 @@ const uporabnikiIzbrisiIzbranega = (req, res) => {
 
 module.exports = {
     uporabnikiSeznam,
-    uporabnikiPreberiIzbranega,
-    uporabnikiIzbrisiIzbranega
+    preberiIzbranega,
+    izbrisiIzbranega
 }
