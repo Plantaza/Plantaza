@@ -5,7 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
 const mongoose = require('mongoose');
-const debug = require('debug')('express-server:server');
+const debug = require('debug');
 const passport = require('passport');
 const app = express();
 const logger = require('morgan');
@@ -32,6 +32,11 @@ app.use('/api', (req, res, next) => {
 });
 
 app.use('/api', indexApi)
+
+app.get("/url", (req, res, next) => {
+    res.json(["Tony","Lisa","Michael","Ginger","Food"]);
+    res.end()
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,7 +65,11 @@ app.set('port', port);
 
 const server = http.createServer(app);
 
-server.listen(port);
+server.listen(port, function() {
+    console.log("Server start")
+});
+
+
 
 server.on('error', onError);
 server.on('listening', onListening);
@@ -111,4 +120,5 @@ function onListening() {
         ? 'pipe ' + addr
         : 'port ' + addr.port;
     debug('Listening on ' + bind);
+    console.log("Listening")
 }
