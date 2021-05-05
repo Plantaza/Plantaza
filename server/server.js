@@ -1,21 +1,27 @@
 require('dotenv').config();
 
+const createError = require('http-errors');
 const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
 const mongoose = require('mongoose');
-var debug = require('debug')('server:server');
+const debug = require('debug')('express-server:server');
 const passport = require('passport');
 const app = express();
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+
 
 require('./db');
 require('./passport');
 
 //var indexRouter = require('./app_server/routes/index');
-var indexApi = require('./routes/index');
+const indexApi = require('./routes/index');
 
-app.use(bodyParser.json)
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(logger('dev'));
+app.use(express.json)
+app.use(express.urlencoded({extended: false}))
+app.use(cookieParser());
 
 app.use(passport.initialize());
 app.use('/api', (req, res, next) => {
@@ -49,14 +55,12 @@ app.use(function(err, req, res, next) {
     res.render('error');
 });
 
-const port = normalizePort(process.env.PORT || '8000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 const server = http.createServer(app);
 
-server.listen(port, function () {
-    console.info(`Server is up and running on port ${port}`)
-});
+server.listen(port);
 
 server.on('error', onError);
 server.on('listening', onListening);
