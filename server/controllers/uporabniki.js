@@ -21,7 +21,7 @@ const uporabnikiSeznam = (req, res) => {
       });
 };
 
-const uporabnikiPreberiIzbranega = (req, res) => {
+const preberiIzbranega = (req, res) => {
 
   if (!req.params.idUporabnika) {
       return res.status(400).json({
