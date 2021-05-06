@@ -9,8 +9,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { SwipeComponent } from './swipe/swipe.component';
 import { AddPlantComponent } from './add-plant/add-plant.component';
 import { FirstPageComponent } from './first-page/first-page.component';
-import { NastavitveComponent } from './nastavitve/nastavitve.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SwipeComponent,
     AddPlantComponent,
     FirstPageComponent,
-    NastavitveComponent
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
