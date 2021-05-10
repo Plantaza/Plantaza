@@ -3,9 +3,8 @@ const { Rastline } = require('../controllers/rastline');
 const { Uporabniki } = require('../controllers/uporabniki');
 
 const oglasiShema = new mongoose.Schema({
-  _id: { type: String, required: true },
-  idRastline: { type: Rastline, required: true },
-  idUporabnika: { type: Uporabniki, required: true},
+  idRastline: { type: String, required: true },
+  idUporabnika: { type: String, required: true},
   slika: { type: String, required: false }
 })
 

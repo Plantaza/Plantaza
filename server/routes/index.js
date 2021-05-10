@@ -16,9 +16,15 @@ const ctrlOglasi = require('../controllers/oglasi');
 /**
  *  Routes for rastlina
  */
-router.post('/rastlina',avtentikacija,ctrlRastline.postRastlina)
+router.post('/rastlina', ctrlRastline.postRastlina);
 
-router.get('/rastlina',avtentikacija,ctrlRastline.getRastline)
+router.get('/rastlina', ctrlRastline.getRastline);
+
+router.get('/rastlina/id', ctrlRastline.getRastlina);
+
+router.get('/rastlina/kategorija', ctrlRastline.filterKategorija)
+
+router.get('/rastlina/podkategorija', ctrlRastline.filterPodKategorija)
 
 /**
  *  Routes for avtentikacija

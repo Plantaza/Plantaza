@@ -14,14 +14,14 @@ require('./passport')
 
 var app = express();
 
-// Odprava varnostnih pomanjkljivosti
-app.disable('x-powered-by');
-app.use((req, res, next) => {
-    res.header('X-Frame-Options', 'DENY');
-    res.setHeader('X-XSS-Protection', '1; mode=block');
-    res.setHeader('X-Content-Type-Options', 'nosniff');
-    next();
-});
+// // Odprava varnostnih pomanjkljivosti
+// app.disable('x-powered-by');
+// app.use((req, res, next) => {
+//     res.header('X-Frame-Options', 'DENY');
+//     res.setHeader('X-XSS-Protection', '1; mode=block');
+//     res.setHeader('X-Content-Type-Options', 'nosniff');
+//     next();
+// });
 
 // // view engine setup
 // app.set('views', path.join(__dirname, 'app_server', 'views'));

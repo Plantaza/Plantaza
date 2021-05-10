@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const crypto = require('crypto');
-const jwt = require('jsonwebtoken');
+
 const Oglasi = mongoose.model('Oglasi')
 
 const oglasiSeznam = (req, res) => {
@@ -82,6 +81,7 @@ const oglasiIzbrisiIzbranega = (req, res) => {
 };
 
 const oglasiKreiraj = (req, res) => {
+
   var data = req.body
 
   if (!data.idRastline) {
@@ -96,11 +96,9 @@ const oglasiKreiraj = (req, res) => {
               "Id Uporabnika je obvezen podatek"
       });
   }
-
   var slika = data.slika;
   slika = slika.replace('data:image/png;base64,', '');
-
-  Oglas.create({
+  Oglasi.create({
       idRastline: data.idRastline,
       idUporabnika: data.idUporabnika,
       slika: slika
