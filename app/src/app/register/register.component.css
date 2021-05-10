@@ -1,10 +1,26 @@
-.btn-primary {
-    font-size: 13px;
-    color: #ffffff;
-    letter-spacing: 1px;
-    line-height: 15px;
-    border: 2px solid rgba(58, 133, 191, 0.75);
-    border-radius: 40px;
-    background: #0D0101;
-    transition: all 0.3s ease 0s;
+.input_fields {
+  margin-top: 5rem;
+}
+
+.vnosna_polja {
+  display: inline-block;
+}
+
+.form-group {
+  margin-top: 1rem;
+}
+
+.naslov {
+  margin-bottom: 1rem;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.pogoji {
+  margin-top: 0.5rem;
+}
+
+input[type=submit] {
+  color: #fff;
+  background-color:rgb(36, 36, 36);
 }

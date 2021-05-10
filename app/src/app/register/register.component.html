@@ -1,13 +1,37 @@
-<div class="container logo-container row h-100 w-100">
-    <input class="form-control input-box" type="text" id="uporabnisko_ime" name="uporabnisko_ime" placeholder="Uporabiško ime">
-    <input class="form-control input-box" type="email" id="email" name="email" placeholder="E-naslov">
-    <input class="form-control input-box" type="password" id="password" name="password" placeholder="Geslo">
-    <input class="form-control input-box" type="password" id="password_repeat" name="password" placeholder="Ponovi geslo">
-    <div>
-        <input type="checkbox" id="pogoji" name="pogoji" value="pogoji">
-        <label for="vehicle1">
-          Strinjam se s <a href="https://www.w3schools.com">pogoji storitev</a>.
-        </label>
+<div class="container">
+
+  <div class="input_fields text-center justify-content-center">
+
+    <div class="vnosna_polja col-10">
+
+      <form>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Uporabniško ime">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Geslo">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Ponovi geslo">
+        </div>
+
+        <div class="pogoji">
+          <input type="checkbox" id="pogoji" name="pogoji" value="pogoji">
+          <label for="vehicle1">
+            Strinjam se s <a href="https://www.w3schools.com">pogoji storitev</a>.
+          </label>
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="registracija_button" value="Registracija" class="form-control">
+        </div>
+
+      </form>
+
     </div>
-    <button class="btn-primary p-2" title="registrirajse" routerLink="/swipe">Registriraj se</button>
+  </div>
 </div>
