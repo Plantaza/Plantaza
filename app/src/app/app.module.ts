@@ -12,6 +12,7 @@ import { FirstPageComponent } from './first-page/first-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SettingsComponent } from './settings/settings.component';
 import { OgrodjeComponent } from './ogrodje/ogrodje.component';
+import { OgrodjeBackComponent } from './ogrodje-back/ogrodje-back.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { OgrodjeComponent } from './ogrodje/ogrodje.component';
     AddPlantComponent,
     FirstPageComponent,
     SettingsComponent,
-    OgrodjeComponent
+    OgrodjeComponent,
+    OgrodjeBackComponent
   ],
   imports: [
     BrowserModule,
