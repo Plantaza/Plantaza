@@ -22,9 +22,9 @@ router.get('/rastlina', ctrlRastline.getRastline);
 
 router.get('/rastlina/id', ctrlRastline.getRastlina);
 
-router.get('/rastlina/kategorija', ctrlRastline.filterKategorija)
+router.get('/rastlina/kategorija/:kategorija', ctrlRastline.filterKategorija)
 
-router.get('/rastlina/podkategorija', ctrlRastline.filterPodKategorija)
+router.get('/rastlina/podkategorija/:podkategorija', ctrlRastline.filterPodKategorija)
 
 /**
  *  Routes for avtentikacija

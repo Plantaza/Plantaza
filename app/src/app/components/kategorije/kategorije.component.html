@@ -1,5 +1,3 @@
-<app-ogrodje></app-ogrodje>
-
 <div>
   <div class=" rounded search">
     <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
@@ -7,11 +5,13 @@
   </div>
 
   <div class="kategorije row text-center">
-    <div class="col-6 kategorija" *ngFor="let kategorija of kategorije">
+    <div class="col-6 kategorija" *ngFor="let kategorija of kategorije" style="cursor: pointer">
+      <a routerLink="/kategorije/{{kategorija.ime}}">
       <img src={{kategorija.slika}} height="150px">
       <div class="ime">
         {{kategorija.ime}}
       </div>
+      </a>
     </div>
   </div>
 </div>

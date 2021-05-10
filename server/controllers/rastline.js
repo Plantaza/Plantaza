@@ -62,7 +62,7 @@ const postRastlina = (req, res) => {
 
 const filterKategorija = (req, res) => {
     Rastline
-        .find({'kategorija': req.query.kategorija}).exec(function(err, rastline){
+        .find({'kategorija': req.params.kategorija}).exec(function(err, rastline){
         if (err) {
             console.err(err);
             res.status(404).json({"sporocilo": "Napaka pri poizvedbi po kategoriji: " + err});
@@ -74,7 +74,7 @@ const filterKategorija = (req, res) => {
 
 const filterPodKategorija = (req, res) => {
     Rastline
-        .find({'podkategorija': req.query.podkategorija}).exec(function(err, rastline){
+        .find({'podkategorija': req.params.podkategorija}).exec(function(err, rastline){
         if (err) {
             console.err(err);
             res.status(404).json({"sporocilo": "Napaka pri poizvedbi po kategoriji: " + err});

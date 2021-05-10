@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Kategorija } from '../classes/kategorija';
+import { Kategorija } from '../../classes/kategorija';
 
 @Component({
   selector: 'app-kategorije',

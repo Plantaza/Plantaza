@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddPlantComponent } from './add-plant/add-plant.component';
-import { FirstPageComponent } from './first-page/first-page.component';
-import { KategorijeComponent } from './kategorije/kategorije.component';
-import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './profile/profile.component';
-import { RegisterComponent } from './register/register.component';
-import { SwipeComponent } from './swipe/swipe.component';
+import { AddPlantComponent } from './components/add-plant/add-plant.component';
+import { FirstPageComponent } from './components/first-page/first-page.component';
+import { KategorijeComponent } from './components/kategorije/kategorije.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/register/register.component';
+import { SwipeComponent } from './components/swipe/swipe.component';
+import {PrikazKategorijeComponent} from './components/prikaz-kategorije/prikaz-kategorije.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'kategorije',
     component: KategorijeComponent
+  },
+  {
+    path: 'kategorije/:kategorija',
+    component: PrikazKategorijeComponent
   }
 ];
 
