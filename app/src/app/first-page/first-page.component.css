@@ -8,3 +8,21 @@
     background: #0D0101;
     transition: all 0.3s ease 0s;
 }
+
+.logo {
+  margin: 3rem;
+}
+
+.buttons {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.prijava {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.registracija {
+  font-size: 1.5rem;
+}

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddPlantComponent } from './add-plant/add-plant.component';
 import { FirstPageComponent } from './first-page/first-page.component';
+import { KategorijeComponent } from './kategorije/kategorije.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'plant/add',
     component: AddPlantComponent
+  },
+  {
+    path: 'kategorije',
+    component: KategorijeComponent
   }
 ];
 
