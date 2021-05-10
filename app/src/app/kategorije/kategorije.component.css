@@ -1,0 +1,13 @@
+.search {
+  margin: 1rem
+}
+
+.kategorija {
+  margin-top: 2rem;
+}
+
+.ime {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: rgb(100, 100, 100);
+}
