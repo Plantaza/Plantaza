@@ -20,3 +20,7 @@ input[type=submit] {
   color: #fff;
   background-color:rgb(36, 36, 36);
 }
+
+.buttons {
+  margin-top: 2rem;
+}
