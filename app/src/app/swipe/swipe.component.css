@@ -3,3 +3,31 @@
     text-align: center;
     padding: 20px;
 }
+
+.input_fields {
+  margin-top: 1rem;
+}
+
+.naslov {
+  margin-bottom: 1rem;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.vnosna_polja {
+  margin-top: 2rem;
+}
+
+.ime {
+  font-size: 1.5rem;
+  color: rgb(100, 100, 100);
+  margin-top: 0.5rem;
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.opis {
+  font-size: 1rem;
+  color: rgb(100, 100, 100);
+  margin-left: 1.5rem;
+}
