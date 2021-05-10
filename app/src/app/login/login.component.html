@@ -1,12 +1,27 @@
-<div class="d-flex flex-column">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <img class="align-middle" src="../../assets/images/logo.png">
-                <input class="form-control input-box" type="text" id="uporabnisko_ime" name="uporabnisko_ime" placeholder="Uporabiško ime">
-                <input class="form-control input-box" type="password" id="password" name="password" placeholder="Geslo">
-                <button title="Prijava" class="btn-primary p-2" routerLink="/swipe">Prijava</button>
-            </div>
-        </div>
+<div class="container">
+
+  <div class="input_fields text-center justify-content-center">
+    <div class="image text-center">
+      <img src="../../assets/images/logo.png" width="70%">
     </div>
+
+    <div class="vnosna_polja col-10">
+
+      <form>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Uporabniško ime">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Geslo">
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="login_button" value="Prijava" class="form-control">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
 </div>
