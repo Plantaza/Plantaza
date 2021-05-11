@@ -20,14 +20,24 @@ export class OglasiService {
       .catch(OglasiService.obdelajNapako);
   }
 
-  public pridobiRastlinoPoId(kategorija: string): Promise<any>{
-    const url: string = `${this.apiUrl}/rastlina/id/${kategorija}`
+  public pridobiRastlinoPoId(id: string): Promise<any>{
+    const url: string = `${this.apiUrl}/rastlina/id/${id}`
     return this.http
       .get(url)
       .toPromise()
       .then(odgovor => odgovor as any)
       .catch(OglasiService.obdelajNapako);
   }
+
+  public pridobiOglase(): Promise<any[]>{
+    const url: string = `${this.apiUrl}/oglas/all`
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(odgovor => odgovor as any)
+      .catch(OglasiService.obdelajNapako);
+  }
+
 
 
   private static obdelajNapako(napaka: any): Promise<any> {

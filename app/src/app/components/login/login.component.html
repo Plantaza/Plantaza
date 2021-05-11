@@ -2,23 +2,23 @@
 
   <div class="input_fields text-center justify-content-center">
     <div class="image text-center">
-      <img src="../../../assets/images/logo_green.png" width="70%">
+      <img src="../../../assets/images/logo_green.png" style="cursor: pointer; width: 70%" routerLink="/">
     </div>
 
     <div class="vnosna_polja col-10">
 
-      <form>
+      <form [formGroup]="uporabnikData" (ngSubmit)="onClickSubmit()">
 
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Uporabniško ime">
+          <input type="text" class="form-control" placeholder="Elektronska pošta" required formControlName="elektronskiNaslov">
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" placeholder="Geslo">
+          <input type="password" class="form-control" placeholder="Geslo" required formControlName="geslo">
         </div>
 
         <div class="form-group buttons text-center">
           <!-- <input type="submit" class="login_button" value="Prijava" class="form-control"> -->
-          <img src="../../../assets/images/prijava.png" width="70%">
+          <img src="../../../assets/images/prijava.png" (click)="onClickSubmit()" style="cursor: pointer; width: 70%">
         </div>
 
       </form>

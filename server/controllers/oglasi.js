@@ -6,7 +6,7 @@ const oglasiSeznam = (req, res) => {
   Oglasi
       .find()
       .sort('-date')
-      .limit(10)
+      .limit(50)
       .exec((napaka, oglasi) => {
           if (!oglasi) {
               return res.status(404).json({

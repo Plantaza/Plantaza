@@ -23,7 +23,7 @@ const registracija = (req, res) => {
                 res.status(500).json(napaka);
             }
         } else {
-            res.status(200).json({"žeton": uporabnik.generirajJwt()});
+            res.status(200).json({"zeton": uporabnik.generirajJwt()});
         }
     });
 };
@@ -36,7 +36,7 @@ const prijava = (req, res) => {
         if (napaka)
             return res.status(500).json(napaka);
         if (uporabnik) {
-            res.status(200).json({"žeton": uporabnik.generirajJwt()});
+            res.status(200).json({"zeton": uporabnik.generirajJwt()});
         } else {
             res.status(401).json(informacije);
         }

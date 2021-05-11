@@ -1,27 +1,23 @@
-<div class="container">
+<div class="container text-center" *ngIf="rastlina">
   <div class="naslov">
     Izmenjevalnica
   </div>
 
-  <div class="input_fields">
-    <div class="image text-center">
-      <img src="../../../assets/images/rastlina_placeholder.png" width="90%">
-    </div>
+  <div class="row align-content-center">
+    <img src="assets/images/rastlina_placeholder.png" class="mx-auto d-block"  style="width: 70%" routerLink="/podrobnosti/{{rastlina._id}}">
+  </div>
+  <div class="row text-start">
+    <div class="ime">{{rastlina.imeRastline}}</div>
+    <div class="opis">{{rastlina.opis}}</div>
+  </div>
+  <div class="row text-center mt-3">
 
-    <div class="ime">Ime rastline</div>
-    <div class="opis">Lorem ipsum dolor sit amet, consectetur adipisicing elit,...</div>
 
-    <div class="vnosna_polja">
+      <img src="../../../assets/images/retry.svg" style="width: 10%;position: absolute; left: 0; cursor: pointer" (click)="refresh()" >
 
-      <div class="row text-center">
-        <div class="col icon">
-          <img src="../../../assets/images/no.png" width="50%">
-        </div>
-        <div class="col icon">
-          <img src="../../../assets/images/yes.png" width="50%">
-        </div>
-      </div>
+      <img src="../../../assets/images/cross.svg"  style="width: 20%; position: absolute; left: 25%; cursor: pointer" (click)="onAccept()" >
 
-    </div>
+      <img src="../../../assets/images/check.svg" style="width:20%; position: absolute; left: 55%;cursor:pointer;" (click)="onDeny()">
+
   </div>
 </div>

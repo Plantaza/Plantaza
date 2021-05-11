@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from "@angular/router";
 import {Location} from "@angular/common";
+import {AvtentikacijaService} from "../../services/avtentikacija.service";
 
 @Component({
   selector: 'app-ogrodje',
@@ -8,13 +9,13 @@ import {Location} from "@angular/common";
   styleUrls: ['./ogrodje.component.css']
 })
 export class OgrodjeComponent implements OnInit {
-  showNav: any
+  showNav = true
   showIcon: any
   route: string = ""
 
-  constructor(private _location: Location, router: Router) {
+  constructor(private _location: Location, router: Router, private avtentikacijaService: AvtentikacijaService) {
     router.events.subscribe((val) => {
-      this.showNav = _location.path() != '' && _location.path() != '/' && _location.path() != '/login' && _location.path() != '/register';
+      this.showNav = this.avtentikacijaService.jePrijavljen()
       this.showIcon = _location.path() != '/profile';
     });
   }
