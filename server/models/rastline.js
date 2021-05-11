@@ -6,8 +6,7 @@ const rastlineShema = new mongoose.Schema({
     podkategorija: {type:String, required: false},
     potrebaPoSvetlobi: { type: Number, required: true },
     procentOhranjanjaVlage: { type: Number, required: true },
-    opis: {type: String, required: true},
-    lastnikObjectId: {type: String, required:true}
+    opis: {type: String, required: true}
 });
 
 

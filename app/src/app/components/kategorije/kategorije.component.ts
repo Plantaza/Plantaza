@@ -16,14 +16,15 @@ export class KategorijeComponent implements OnInit {
 
   kategorije: Kategorija[] = []
 
+  strKategorije = ["Aloje", "Alpske rastline", "Drevesa", "Dvoletnice", "Enoletnice", "Grmičevje", "Kaktusi", "Orhideje", "Plezalke", "Praproti", "Sobne rastline", "Sukulenti", "Trajnice", "Trave", "Vodne rastline", "Vresje", "Čebulnice"]
   public napolniKategorije(): void {
-    for (var i = 1; i <= 21; i++) {
+    for (var i = 0; i < this.strKategorije.length; i++) {
 
-      console.log("../../assets/images/kategorije/roze" + i + ".svg")
+
       this.kategorije.push(
         {
-          slika: "../../assets/images/kategorije/roze" + i + ".svg",
-          ime: "Kategorija" + i
+          slika: "../../assets/images/kategorije/" + this.strKategorije[i] + ".svg",
+          ime: this.strKategorije[i]
         }
       )
     }

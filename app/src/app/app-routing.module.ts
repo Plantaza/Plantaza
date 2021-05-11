@@ -8,6 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SwipeComponent } from './components/swipe/swipe.component';
 import {PrikazKategorijeComponent} from './components/prikaz-kategorije/prikaz-kategorije.component';
+import {PodrobnostiRastlineComponent} from "./components/podrobnosti-rastline/podrobnosti-rastline.component";
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'kategorije/:kategorija',
     component: PrikazKategorijeComponent
+  },
+  {
+    path: 'podrobnosti/:rastlina',
+    component: PodrobnostiRastlineComponent
   }
 ];
 

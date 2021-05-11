@@ -15,6 +15,9 @@ import { OgrodjeComponent } from './components/ogrodje/ogrodje.component';
 import { OgrodjeBackComponent } from './components/ogrodje-back/ogrodje-back.component';
 import { KategorijeComponent } from './components/kategorije/kategorije.component';
 import { PrikazKategorijeComponent } from './components/prikaz-kategorije/prikaz-kategorije.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {RouterModule} from "@angular/router";
+import { PodrobnostiRastlineComponent } from './components/podrobnosti-rastline/podrobnosti-rastline.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +32,15 @@ import { PrikazKategorijeComponent } from './components/prikaz-kategorije/prikaz
     OgrodjeComponent,
     OgrodjeBackComponent,
     KategorijeComponent,
-    PrikazKategorijeComponent
+    PrikazKategorijeComponent,
+    PodrobnostiRastlineComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

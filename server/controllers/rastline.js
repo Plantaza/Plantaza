@@ -3,7 +3,7 @@ const Rastline = mongoose.model('Rastline');
 
 const getRastlina = (req, res) => {
     Rastline
-        .findById(req.query.id)
+        .findById(req.params.id)
         .exec((napaka, rastlina) => {
             if (!rastlina) {
                 return res.status(404).json({
@@ -44,7 +44,6 @@ const postRastlina = (req, res) => {
     rastlina.potrebaPoSvetlobi = d.potrebaPoSvetlobi
     rastlina.procentOhranjanjaVlage = d.procentOhranjanjaVlage
     rastlina.opis = d.opis || ""
-    rastlina.lastnikObjectId = d.lastnikObjectId
 
 
     rastlina.save((err, plant) => {

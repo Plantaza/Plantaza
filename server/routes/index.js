@@ -20,7 +20,7 @@ router.post('/rastlina', ctrlRastline.postRastlina);
 
 router.get('/rastlina', ctrlRastline.getRastline);
 
-router.get('/rastlina/id', ctrlRastline.getRastlina);
+router.get('/rastlina/id/:id', ctrlRastline.getRastlina);
 
 router.get('/rastlina/kategorija/:kategorija', ctrlRastline.filterKategorija)
 

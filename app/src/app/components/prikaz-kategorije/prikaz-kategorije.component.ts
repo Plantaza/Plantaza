@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import {OglasiService} from "../../services/oglasi.service";
+import {Rastlina} from "../../classes/rastlina";
 
 @Component({
   selector: 'app-prikaz-kategorije',
@@ -8,19 +10,23 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class PrikazKategorijeComponent implements OnInit {
 
-  constructor(  private route: ActivatedRoute,) {
+  constructor(  private route: ActivatedRoute, private oglasiService: OglasiService) {
   }
-  vseRastline = [];
+  vseRastline : Rastlina[] = [];
   kategorija: string = "";
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.kategorija = params['kategorija'];
-
+      this.oglasiService.pridobiRastlineKategorije(this.kategorija).then((oglasi) => {
+        this.vseRastline = oglasi
+      })
     });
 
 
-    // getPlantsByCategory(this.kategorija)
   }
 
+  showRastlina(_id: string) {
+
+  }
 }
