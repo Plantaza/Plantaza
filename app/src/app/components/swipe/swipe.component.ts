@@ -15,6 +15,12 @@ export class SwipeComponent implements OnInit {
   constructor(private oglasiService:OglasiService) { }
 
   rastlina : any
+  // rastlina = {
+  //   _id: "fjdsk57438957",
+  //   imeRastline: "Regrat",
+  //   kategorija: "Praprotnice",
+  //   opis: "Lorem ipsum dolor sunt"
+  // }
 
   ngOnInit(): void {
     this.current =0

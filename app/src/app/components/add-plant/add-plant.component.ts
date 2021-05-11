@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { OglasiService } from 'src/app/services/oglasi.service';
 
 @Component({
   selector: 'app-add-plant',
@@ -7,9 +9,73 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPlantComponent implements OnInit {
 
-  constructor() { }
+  file1: File
 
-  ngOnInit(): void {
+  rastlina = {
+    ime: '',
+    kategorija: '',
+    podkategorija: '',
+    svetloba: 0,
+    vlaga: 0,
+    opis: '',
+    slika: null
   }
 
+  constructor(
+    private oglasiStoritev: OglasiService
+  ) { }
+
+  ngOnInit(): void {
+    // document.getElementById("slikaRastline").onchange = this.dodajFile()
+  }
+
+  podatki = new FormGroup ({
+    ime: new FormControl('', [
+      Validators.required,
+    ]),
+    kategorija: new FormControl('', [
+      Validators.required,
+    ]),
+    podkategorija: new FormControl('', [
+    ]),
+    svetloba: new FormControl('', [
+    ]),
+    vlaga: new FormControl('', [
+    ]),
+    opis: new FormControl('', [
+    ])
+  })
+
+  public dodajRastlino(): void {
+    let reader = new FileReader();
+			reader.readAsDataURL(this.file1);
+			reader.onloadend = (e) => {
+        // console.log(reader.result)
+        this.rastlina.slika = reader.result
+        this.rastlina.ime = this.podatki.get("ime").value
+        this.rastlina.kategorija = this.podatki.get("kategorija").value
+        this.rastlina.podkategorija = this.podatki.get("podkategorija").value
+        this.rastlina.svetloba = this.podatki.get("svetloba").value
+        this.rastlina.vlaga = this.podatki.get("vlaga").value
+        this.rastlina.opis = this.podatki.get("opis").value
+
+        this.oglasiStoritev.objaviOglas(this.rastlina)
+          .then(oglas => {
+            console.log("Oglas uspesno dodan", oglas)
+          })
+          .catch(napaka => {
+            console.log("Napaka pri dodajanju oglasa", napaka)
+          })
+      }
+  }
+
+  public dodajFile(e: Event) {
+    this.file1 = (<HTMLInputElement>e.target).files[0]
+
+    console.log(this.file1)
+  }
+
+  handleFileInput(files: FileList) {
+		// this.file1 = files.target.files[0];
+	}
 }

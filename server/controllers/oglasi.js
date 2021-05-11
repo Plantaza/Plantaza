@@ -82,6 +82,8 @@ const oglasiIzbrisiIzbranega = (req, res) => {
 
 const oglasiKreiraj = (req, res) => {
 
+    console.log("Kreiraj oglas")
+
   var data = req.body
 
   if (!data.idRastline) {

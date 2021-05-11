@@ -4,20 +4,23 @@
   </div>
 
   <div class="row align-content-center">
-    <img src="assets/images/rastlina_placeholder.png" class="mx-auto d-block"  style="width: 70%" routerLink="/podrobnosti/{{rastlina._id}}">
+    <img src="assets/images/rastlina_placeholder.png" class="mx-auto d-block"  style="width: 90%" routerLink="/podrobnosti/{{rastlina._id}}">
   </div>
   <div class="row text-start">
-    <div class="ime">{{rastlina.imeRastline}}</div>
+    <div class="col">
+      <div class="ime">{{rastlina.imeRastline}}</div>
     <div class="opis">{{rastlina.opis}}</div>
+    </div>
   </div>
-  <div class="row text-center mt-3">
+  <div class="row text-center mt-5">
 
+      <!-- <img src="../../../assets/images/retry.svg" style="width: 10%;position: relative; left: 0; cursor: pointer" (click)="refresh()" > -->
+    <div class="col">
+      <img src="../../../assets/images/cross.svg"  style="width: 40%; position: relative; cursor: pointer" (click)="onAccept()" >
+    </div>
 
-      <img src="../../../assets/images/retry.svg" style="width: 10%;position: absolute; left: 0; cursor: pointer" (click)="refresh()" >
-
-      <img src="../../../assets/images/cross.svg"  style="width: 20%; position: absolute; left: 25%; cursor: pointer" (click)="onAccept()" >
-
-      <img src="../../../assets/images/check.svg" style="width:20%; position: absolute; left: 55%;cursor:pointer;" (click)="onDeny()">
-
+    <div class="col">
+      <img src="../../../assets/images/check.svg" style="width:40%; position: relative;cursor:pointer;" (click)="onDeny()">
+    </div>
   </div>
 </div>

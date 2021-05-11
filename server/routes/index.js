@@ -16,6 +16,7 @@ const ctrlOglasi = require('../controllers/oglasi');
 /**
  *  Routes for rastlina
  */
+
 router.post('/rastlina', ctrlRastline.postRastlina);
 
 router.get('/rastlina', ctrlRastline.getRastline);

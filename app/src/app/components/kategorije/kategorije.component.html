@@ -5,9 +5,9 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6 text-center kategorija" *ngFor="let kategorija of kategorije" style="cursor: pointer">
+    <div class="col-6 text-center kategorija" *ngFor="let kategorija of kategorije" style="cursor: pointer">
       <a routerLink="/kategorije/{{kategorija.ime}}">
-      <img src="{{kategorija.slika}}" style="max-width: 300px; max-height: 300px">
+      <img src="{{kategorija.slika}}" style="height: 150px; max-width: 300px; max-height: 300px">
       <div class="ime">
         {{kategorija.ime}}
       </div>
@@ -15,4 +15,3 @@
     </div>
   </div>
 </div>
-

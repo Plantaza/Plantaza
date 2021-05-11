@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import { AvtentikacijaService } from './avtentikacija.service';
+import { Oglas } from '../classes/oglas';
 
 
 @Injectable({
@@ -8,7 +10,10 @@ import {environment} from "../../environments/environment";
 })
 export class OglasiService {
 
-  constructor( private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private avtentikacijaService: AvtentikacijaService
+  ) { }
   private apiUrl = environment.apiUrl;
 
   public pridobiRastlineKategorije(kategorija: string): Promise<any[]>{
@@ -38,6 +43,20 @@ export class OglasiService {
       .catch(OglasiService.obdelajNapako);
   }
 
+
+  public objaviOglas(oglas: any): Promise<any[]> {
+    const url: string = `${this.apiUrl}/oglas`;
+		const httpLastnosti = {
+			headers: new HttpHeaders({
+				'Authorization': `Bearer ${this.avtentikacijaService.vrniZeton()}`
+			})
+		};
+		return this.http
+			.post(url, oglas, httpLastnosti)
+			.toPromise()
+			.then(oglas => oglas as Oglas)
+			.catch(OglasiService.obdelajNapako);
+  }
 
 
   private static obdelajNapako(napaka: any): Promise<any> {

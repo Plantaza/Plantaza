@@ -4,30 +4,42 @@
   </div>
 
   <div class="input_fileds text-center">
-    <div class="image">
+    <!-- <div class="image">
       <img src="../../../assets/images/img_add_placeholder.png" width="50%">
-    </div>
+    </div> -->
 
     <div class="vnosna_polja col-10 text-center justify-content-center">
-      <form>
+      <form [formGroup]="podatki">
 
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Ime rastine">
+					<!-- <label>Naložite sliko svoje rastline</label> -->
+					<div class="custom-file">
+						<!-- <label for="myfile">Select a file:</label> -->
+            <input type="file" id="myfile" name="myfile" (change)="dodajFile($event)" #fileUpload>
+					</div>
+				</div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="ime" placeholder="Ime rastine">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Kategorija">
+          <input type="text" class="form-control" formControlName="kategorija" placeholder="Kategorija">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Podkategorija">
+          <input type="text" class="form-control" formControlName="podkategorija" placeholder="Podkategorija">
         </div>
         <div class="form-group">
-          <input type="number" class="form-control" placeholder="Potreba po svetlobi (%)">
+          <input type="number" class="form-control" formControlName="svetloba" placeholder="Potreba po svetlobi (%)">
         </div>
         <div class="form-group">
-          <input type="number" class="form-control" placeholder="Procent ohranjanja vlage (%)">
+          <input type="number" class="form-control" formControlName="vlaga" placeholder="Procent ohranjanja vlage (%)">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Opis">
+          <input type="text" class="form-control" formControlName="opis" placeholder="Opis">
+        </div>
+
+        <div class="form-group">
+          <input (click)="dodajRastlino()" type="submit" value="Dodaj" class="form-control">
         </div>
       </form>
 
