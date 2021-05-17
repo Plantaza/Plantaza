@@ -1,0 +1,13 @@
+.vnosna_polja {
+  display: inline-block;
+}
+
+.form-group {
+  margin-top: 1rem;
+}
+
+.naslov {
+  margin-bottom: 1rem;
+  font-size: 1.5em;
+  font-weight: 500;
+}

@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { SwipeComponent } from './components/swipe/swipe.component';
 import {PrikazKategorijeComponent} from './components/prikaz-kategorije/prikaz-kategorije.component';
 import {PodrobnostiRastlineComponent} from "./components/podrobnosti-rastline/podrobnosti-rastline.component";
+import { AddOglasComponent } from './components/add-oglas/add-oglas.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'podrobnosti/:rastlina',
     component: PodrobnostiRastlineComponent
+  },
+  {
+    path: 'oglas/add',
+    component: AddOglasComponent
   }
 ];
 

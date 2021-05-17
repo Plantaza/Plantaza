@@ -1,1 +1,31 @@
-<p>add-oglas works!</p>
+<div class="container">
+  <div class="naslov mt-5">
+    Dodaj oglas
+  </div>
+
+  <div class="input_fileds text-center">
+    <!-- <div class="image">
+      <img src="../../../assets/images/img_add_placeholder.png" width="50%">
+    </div> -->
+
+    <div class="vnosna_polja col-10 text-center justify-content-center">
+      <form [formGroup]="podatki">
+
+        <div class="form-group">
+          <input
+              type="text"
+              class="form-control"
+              formControlName="ime"
+              placeholder="Ime rastine">
+        </div>
+
+        <div class="form-group mt-5">
+          <input (click)="dodajOglas()" type="submit" value="Dodaj" class="form-control">
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
