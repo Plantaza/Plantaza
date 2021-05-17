@@ -19,6 +19,8 @@ import {RouterModule} from "@angular/router";
 import { PodrobnostiRastlineComponent } from './components/podrobnosti-rastline/podrobnosti-rastline.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { AddOglasComponent } from './components/add-oglas/add-oglas.component';
+import { NastavitveComponent } from './components/nastavitve/nastavitve.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { AddOglasComponent } from './components/add-oglas/add-oglas.component';
     KategorijeComponent,
     PrikazKategorijeComponent,
     PodrobnostiRastlineComponent,
-    AddOglasComponent
+    AddOglasComponent,
+    NastavitveComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { AddOglasComponent } from './components/add-oglas/add-oglas.component';
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

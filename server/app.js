@@ -4,6 +4,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser')
 var logger = require('morgan');
 var dbjs = require('./db');
 var indexApi = require('./routes/index');
@@ -13,6 +14,8 @@ require('./passport')
 
 
 var app = express();
+app.use(bodyParser.json({ limit: '10mb' }))
+
 
 // // Odprava varnostnih pomanjkljivosti
 // app.disable('x-powered-by');

@@ -83,33 +83,36 @@ const oglasiIzbrisiIzbranega = (req, res) => {
 };
 
 const oglasiKreiraj = (req, res) => {
-  var data = req.body
 
-  if (!data.idRastline) {
-      return res.status(404).json({
-          "sporocilo":
-              "Id je obvezen podatek"
-      });
-  }
-  if (!data.idUporabnika) {
-      return res.status(404).json({
-          "sporocilo":
-              "Id Uporabnika je obvezen podatek"
-      });
-  }
-  var slika = data.slika;
-//   slika = slika.replace('data:image/png;base64,', '');
-  Oglasi.create({
-      idRastline: data.idRastline,
-      idUporabnika: data.idUporabnika,
-      slika: data.slika
-  }, (napaka, oglas) => {
-      if (napaka) {
-          res.status(400).json(napaka);
-      } else {
-          res.status(201).json(oglas)
-      }
-  });
+    console.log("Kreiram oglas")
+
+    var data = req.body
+
+    if (!data.idRastline) {
+        return res.status(404).json({
+            "sporocilo":
+                "Id je obvezen podatek"
+        });
+    }
+    if (!data.idUporabnika) {
+        return res.status(404).json({
+            "sporocilo":
+                "Id Uporabnika je obvezen podatek"
+        });
+    }
+    var slika = data.slika;
+    //   slika = slika.replace('data:image/png;base64,', '');
+    Oglasi.create({
+        idRastline: data.idRastline,
+        idUporabnika: data.idUporabnika,
+        slika: data.slika
+    }, (napaka, oglas) => {
+        if (napaka) {
+            res.status(400).json(napaka);
+        } else {
+            res.status(201).json(oglas)
+        }
+    });
 };
 
 module.exports = {

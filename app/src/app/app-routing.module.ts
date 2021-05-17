@@ -10,11 +10,16 @@ import { SwipeComponent } from './components/swipe/swipe.component';
 import {PrikazKategorijeComponent} from './components/prikaz-kategorije/prikaz-kategorije.component';
 import {PodrobnostiRastlineComponent} from "./components/podrobnosti-rastline/podrobnosti-rastline.component";
 import { AddOglasComponent } from './components/add-oglas/add-oglas.component';
+import { NastavitveComponent } from './components/nastavitve/nastavitve.component';
 
 const routes: Routes = [
   {
     path: '',
     component: FirstPageComponent
+  },
+  {
+    path: 'nastavitve',
+    component: NastavitveComponent
   },
   {
     path: 'login',

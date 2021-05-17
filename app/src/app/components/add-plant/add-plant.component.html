@@ -22,9 +22,22 @@
         <div class="form-group">
           <input type="text" class="form-control" formControlName="ime" placeholder="Ime rastine">
         </div>
+
         <div class="form-group">
-          <input type="text" class="form-control" formControlName="kategorija" placeholder="Kategorija">
+          <!-- <input type="text" class="form-control" formControlName="kategorija" placeholder="Kategorija"> -->
+          <select
+              class="custom-select form-control"
+              id="inputGroupSelect01"
+              style="border: 0;"
+              formControlName="kategorija">
+            <option selected disabled>Kategorija</option>
+            <option
+                *ngFor="let kategorija of kategorije"
+                [ngValue]="kategorija.viewValue"
+                >{{kategorija.viewValue}}</option>
+          </select>
         </div>
+
         <div class="form-group">
           <input type="number" class="form-control" formControlName="svetloba" placeholder="Potreba po svetlobi (%)">
         </div>
@@ -36,7 +49,11 @@
         </div>
 
         <div class="form-group">
-          <input (click)="dodajRastlino()" type="submit" value="Dodaj" class="form-control">
+          <button
+              class="btn btn-outline-success btn-block"
+              (click)="dodajRastlino()"
+              type="submit"
+              >Dodaj</button>
         </div>
       </form>
 
