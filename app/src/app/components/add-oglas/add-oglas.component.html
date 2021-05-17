@@ -1,4 +1,8 @@
 <div class="container">
+  <div *ngIf="opozorilo.visible" class="alert alert-danger" role="alert">
+    {{opozorilo.text}}
+  </div>
+
   <div class="naslov mt-5">
     Dodaj oglas
   </div>
@@ -19,13 +23,45 @@
               placeholder="Ime rastine">
         </div>
 
-        <div class="form-group mt-5">
-          <input (click)="dodajOglas()" type="submit" value="Dodaj" class="form-control">
+        <div class="row mt-5">
+
+          <div class="col">
+            <button
+                class="btn btn-outline-secondary"
+                (click)="preveriRastlino()"
+            >Preveri</button>
+          </div>
+
+          <div class="col">
+            <button
+                class="btn btn-outline-success"
+                (click)="dodajOglas()"
+            >Dodaj</button>
+            <!-- <input
+                (click)="dodajOglas()"
+                type="submit"
+                value="Dodaj"
+                class="form-control"> -->
+          </div>
+
         </div>
+
       </form>
 
     </div>
 
+  </div>
+
+  <hr class="mt-5">
+
+  <div class="container text-left mt-5">
+    <div><b>Ime:</b> {{rastlina.imeRastline}}</div>
+    <div><b>Kategorija:</b> {{rastlina.kategorija}}</div>
+    <div><b>Potreba po svetlobi:</b> {{rastlina.potrebaPoSvetlobi}}</div>
+    <div><b>Potreba po vlagi:</b> {{rastlina.procentOhranjanjaVlage}}</div>
+    <div><b>Opis: </b>{{rastlina.opis}}</div>
+
+    <img>
   </div>
 
 </div>

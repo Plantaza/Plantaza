@@ -35,6 +35,17 @@ export class OglasiService {
       .catch(OglasiService.obdelajNapako);
   }
 
+  public pridobiRastlinoPoImenu(name: string): Promise<any>{
+    const url: string = `${this.apiUrl}/rastlina/name/${name}`
+
+    console.log(url)
+    return this.http
+      .get(url)
+      .toPromise()
+      .then(odgovor => odgovor as any)
+      .catch(OglasiService.obdelajNapako);
+  }
+
   public pridobiOglase(): Promise<any[]>{
     const url: string = `${this.apiUrl}/oglas/all`
     return this.http
@@ -43,7 +54,6 @@ export class OglasiService {
       .then(odgovor => odgovor as any)
       .catch(OglasiService.obdelajNapako);
   }
-
 
   public objaviOglas(oglas: any): Promise<any[]> {
     const url: string = `${this.apiUrl}/oglas`;
@@ -79,7 +89,6 @@ export class OglasiService {
 			.then(rastlina => rastlina as Rastlina)
 			.catch(OglasiService.obdelajNapako);
   }
-
 
   private static obdelajNapako(napaka: any): Promise<any> {
     console.error('Prišlo je do napake', napaka);

@@ -83,9 +83,6 @@ const oglasiIzbrisiIzbranega = (req, res) => {
 };
 
 const oglasiKreiraj = (req, res) => {
-
-    console.log("Kreiraj oglas")
-
   var data = req.body
 
   if (!data.idRastline) {
@@ -101,11 +98,11 @@ const oglasiKreiraj = (req, res) => {
       });
   }
   var slika = data.slika;
-  slika = slika.replace('data:image/png;base64,', '');
+//   slika = slika.replace('data:image/png;base64,', '');
   Oglasi.create({
       idRastline: data.idRastline,
       idUporabnika: data.idUporabnika,
-      slika: slika
+      slika: data.slika
   }, (napaka, oglas) => {
       if (napaka) {
           res.status(400).json(napaka);

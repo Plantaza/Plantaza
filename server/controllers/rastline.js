@@ -22,10 +22,14 @@ const getRastlina = (req, res) => {
 const getRastlinaByName = (req, res) => {
 
     console.log(req.params)
+    console.log("Get by name")
 
     data = req.params
     Rastline
-        .find({ imeRastlina: data.name})
+        .find({ imeRastline: 
+            // case insensitive
+            { $regex: new RegExp("^" + data.name.toLowerCase(), "i") }
+        })
         .exec((napaka, rastlina) => {
             if (!rastlina) {
                 return res.status(404).json({

@@ -23,6 +23,8 @@ router.get('/rastlina', ctrlRastline.getRastline);
 
 router.get('/rastlina/id/:id', ctrlRastline.getRastlina);
 
+router.get('/rastlina/name/:name', ctrlRastline.getRastlinaByName);
+
 router.get('/rastlina/kategorija/:kategorija', ctrlRastline.filterKategorija)
 
 router.get('/rastlina/podkategorija/:podkategorija', ctrlRastline.filterPodKategorija)

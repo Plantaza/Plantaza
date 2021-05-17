@@ -4,5 +4,5 @@ export class Uporabnik {
   opis: string | undefined
   zgoscenaVrednost: string | undefined
   nakljucnaVrednost: string | undefined
-
+  _id: string | undefined
 }

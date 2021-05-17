@@ -35,17 +35,34 @@ export class AvtentikacijaService {
     }
   }
 
-  public vrniTrenutnegaUporabnikaId(): string {
+  public vrniTrenutnegaUporabnikaId(): any {
     if (this.jePrijavljen()) {
       const zeton: string = this.vrniZeton();
       const {_id} = JSON.parse(this.b64Utf8(zeton.split('.')[1]));
       console.log("ID: ",_id);
-      return _id;
+      return _id
     }
     else return ""
   }
 
-
+  public vrniTrenutnegaUporabnika(): Uporabnik {
+    if (this.jePrijavljen()) {
+      const token: string = this.vrniZeton();
+      const {
+        _id,
+        ime,
+        email
+        } = JSON.parse(atob(token.split('.')[1]));
+      return {
+        _id,
+        ime,
+        email
+      } as unknown as Uporabnik;
+    }
+    else{
+      return null;
+    }
+  }
 
   public async prijava(data: any): Promise<any> {
     const url: string = `${this.apiUrl}/prijava`;
