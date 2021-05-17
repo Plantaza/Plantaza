@@ -17,7 +17,7 @@ const ctrlOglasi = require('../controllers/oglasi');
  *  Routes for rastlina
  */
 
-router.post('/rastlina', ctrlRastline.postRastlina);
+router.post('/rastlina', ctrlRastline.kreirajRastlino);
 
 router.get('/rastlina', ctrlRastline.getRastline);
 
@@ -26,6 +26,8 @@ router.get('/rastlina/id/:id', ctrlRastline.getRastlina);
 router.get('/rastlina/kategorija/:kategorija', ctrlRastline.filterKategorija)
 
 router.get('/rastlina/podkategorija/:podkategorija', ctrlRastline.filterPodKategorija)
+
+router.delete('/rastlina/delete/:id', ctrlRastline.deleteRastlina);
 
 /**
  *  Routes for avtentikacija
@@ -47,13 +49,13 @@ router.post('/uporabniki/izbrisi/:id', ctrlUporabniki.izbrisiIzbranega)
 /**
  *  Routes for oglasi
  */
+router.post('/oglas', ctrlOglasi.oglasiKreiraj);
+
 router.get('/oglas/all', ctrlOglasi.oglasiSeznam);
 
 router.get('/oglas/:id', ctrlOglasi.oglasiPreberiIzbranega);
 
 router.get('/oglas/izbrisi/:id', ctrlOglasi.oglasiIzbrisiIzbranega);
-
-router.post('/oglas', ctrlOglasi.oglasiKreiraj);
 
 router.post('/oglas/uporabnik/:id', ctrlOglasi.oglasiUporabnika);
 

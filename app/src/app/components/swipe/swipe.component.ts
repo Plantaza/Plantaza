@@ -26,6 +26,7 @@ export class SwipeComponent implements OnInit {
     this.current =0
     this.oglasiService.pridobiOglase().then((oglasi : Oglas[]) => {
       this.oglasi = oglasi
+      console.log(this.oglasi)
       this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina)=> {
         this.rastlina = rastlina
       })

@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const Oglasi = mongoose.model('Oglasi')
 
 const oglasiSeznam = (req, res) => {
+
+    console.log("Seznam oglasov")
   Oglasi
       .find()
       .sort('-date')

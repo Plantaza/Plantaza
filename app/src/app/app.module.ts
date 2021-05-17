@@ -18,6 +18,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import { PodrobnostiRastlineComponent } from './components/podrobnosti-rastline/podrobnosti-rastline.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { AddOglasComponent } from './components/add-oglas/add-oglas.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     OgrodjeComponent,
     KategorijeComponent,
     PrikazKategorijeComponent,
-    PodrobnostiRastlineComponent
+    PodrobnostiRastlineComponent,
+    AddOglasComponent
   ],
   imports: [
     BrowserModule,

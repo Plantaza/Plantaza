@@ -36,8 +36,6 @@ export class AddPlantComponent implements OnInit {
     kategorija: new FormControl('', [
       Validators.required,
     ]),
-    podkategorija: new FormControl('', [
-    ]),
     svetloba: new FormControl('', [
     ]),
     vlaga: new FormControl('', [
@@ -54,12 +52,11 @@ export class AddPlantComponent implements OnInit {
         this.rastlina.slika = reader.result
         this.rastlina.ime = this.podatki.get("ime").value
         this.rastlina.kategorija = this.podatki.get("kategorija").value
-        this.rastlina.podkategorija = this.podatki.get("podkategorija").value
         this.rastlina.svetloba = this.podatki.get("svetloba").value
         this.rastlina.vlaga = this.podatki.get("vlaga").value
         this.rastlina.opis = this.podatki.get("opis").value
 
-        this.oglasiStoritev.objaviOglas(this.rastlina)
+        this.oglasiStoritev.ustvariRastlino(this.rastlina)
           .then(oglas => {
             console.log("Oglas uspesno dodan", oglas)
           })

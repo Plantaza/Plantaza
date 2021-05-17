@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import { AvtentikacijaService } from './avtentikacija.service';
 import { Oglas } from '../classes/oglas';
+import { Rastlina } from '../classes/rastlina';
 
 
 @Injectable({
@@ -46,15 +47,36 @@ export class OglasiService {
 
   public objaviOglas(oglas: any): Promise<any[]> {
     const url: string = `${this.apiUrl}/oglas`;
+
 		const httpLastnosti = {
 			headers: new HttpHeaders({
 				'Authorization': `Bearer ${this.avtentikacijaService.vrniZeton()}`
 			})
 		};
+
 		return this.http
 			.post(url, oglas, httpLastnosti)
 			.toPromise()
 			.then(oglas => oglas as Oglas)
+			.catch(OglasiService.obdelajNapako);
+  }
+
+  public ustvariRastlino(rastlina: any): Promise<any> {
+
+    console.log("Objavljam novo rastlino", rastlina)
+
+    const url: string = `${this.apiUrl}/rastlina`;
+
+		const httpLastnosti = {
+			headers: new HttpHeaders({
+				'Authorization': `Bearer ${this.avtentikacijaService.vrniZeton()}`
+			})
+		};
+
+    return this.http
+			.post(url, rastlina, httpLastnosti)
+			.toPromise()
+			.then(rastlina => rastlina as Rastlina)
 			.catch(OglasiService.obdelajNapako);
   }
 

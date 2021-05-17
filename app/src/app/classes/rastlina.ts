@@ -5,5 +5,6 @@ export class Rastlina {
   potrebaPoSvetlobi: number | undefined
   procentOhranjanjaVlage:number | undefined
   opis: string | undefined
-  _id: string | undefined;
+  _id: string | undefined
+  slika: string | undefined
 }
