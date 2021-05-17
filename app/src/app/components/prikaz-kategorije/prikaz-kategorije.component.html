@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 text-center p-3" *ngFor="let rastlina of vseRastline" style="cursor: pointer" routerLink="/podrobnosti/{{rastlina._id}}">
-      <img src="assets/images/kategorije/Aloje.svg" style="width: 75%"><br><br>
+  <div class="col">
+    <div class="text-center p-3" *ngFor="let rastlina of vseRastline" style="cursor: pointer" routerLink="/podrobnosti/{{rastlina._id}}">
+      <img src="{{rastlina.slika}}" style="width: 75%"><br><br>
       <span class="ime">{{rastlina.imeRastline}}</span>
     </div>
   </div>

@@ -20,6 +20,8 @@ export class PrikazKategorijeComponent implements OnInit {
       this.kategorija = params['kategorija'];
       this.oglasiService.pridobiRastlineKategorije(this.kategorija).then((oglasi) => {
         this.vseRastline = oglasi
+
+        console.log(this.vseRastline)
       })
     });
 
