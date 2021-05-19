@@ -9,15 +9,30 @@ import { AvtentikacijaService } from 'src/app/services/avtentikacija.service';
 })
 export class ProfileComponent implements OnInit {
 
-  uporabnik: any
+  uporabnik: Uporabnik = {
+    _id: "",
+    elektronskiNaslov: "",
+    opis: "",
+    ime: "",
+    zgoscenaVrednost: "",
+    nakljucnaVrednost: ""
+  }
 
   constructor(
     private avtentikacijaStoritev: AvtentikacijaService
   ) { }
 
+  public shraniSpremembe() {
+    this.avtentikacijaStoritev.shraniSpremembe(this.uporabnik)
+      .then(odgovor => {
+        console.log("Uporabnik posodobljen")
+      })
+  }
+
   ngOnInit(): void {
     this.avtentikacijaStoritev.vrniTrenutnegaUporabnika()
       .then(uporabnik => {
+        this.uporabnik = uporabnik
         console.log(uporabnik)
       })
   }

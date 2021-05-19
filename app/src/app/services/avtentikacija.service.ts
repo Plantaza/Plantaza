@@ -101,6 +101,25 @@ export class AvtentikacijaService {
       });
   }
 
+  public async shraniSpremembe(data: any): Promise<any> {
+    const url: string = `${this.apiUrl}/uporabnik/posodobi`;
+
+    console.log(data)
+
+    let podatki = {
+      _id: data._id,
+      ime: data.ime,
+      elektronskiNaslov: data.elektronskiNaslov,
+      opis: data.opis
+    }
+
+    return this.http
+      .post(url, podatki)
+      .toPromise()
+      .then(odgovor => odgovor)
+      .catch(AvtentikacijaService.obdelajNapako)
+  }
+
 
   public odjava(): void {
     this.shramba.removeItem('prijavni-zeton');

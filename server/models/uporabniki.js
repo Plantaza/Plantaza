@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const uporabnikiShema = new mongoose.Schema({
     elektronskiNaslov: { type: String, unique: true, required: true },
     ime: { type: String, required: true },
-    opis: {type:String, required: false},
+    opis: { type:String, required: false },
     zgoscenaVrednost: { type: String, required: true },
     nakljucnaVrednost: { type: String, required: true }
 });

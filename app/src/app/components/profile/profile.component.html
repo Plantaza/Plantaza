@@ -10,20 +10,18 @@
 
     <div class="vnosna_polja col-10">
 
-      <form>
-
         <div class="form-group">
           <input type="text" class="form-control" [(ngModel)]="uporabnik.elektronskiNaslov" placeholder="Uporabniško ime">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Opis">
+          <input type="text" class="form-control" [(ngModel)]="uporabnik.opis" placeholder="Opis">
         </div>
 
         <div class="form-group">
-          <input type="submit" class="shrani_button" value="Shrani spremembe" class="form-control">
+          <img src="../../../assets/images/shrani_spremembe.png" (click)="shraniSpremembe()" alt="shrani" width="90%">
+          <!-- <input type="submit" class="shrani_button" value="Shrani spremembe" class="form-control"> -->
         </div>
 
-      </form>
 
     </div>
   </div>

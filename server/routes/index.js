@@ -41,12 +41,14 @@ router.post('/prijava', ctrlAvtentikacija.prijava);
 /**
  *  Routes for uporabnik
  */
+
+router.post('/uporabnik/posodobi', ctrlUporabniki.posodobiUporabnika)
+
 router.get('/uporabnik/all', ctrlUporabniki.uporabnikiSeznam);
 
-router.get('/uporabnik/:id', ctrlUporabniki.preberiIzbranega);
+router.get('/uporabnik/:idUporabnika', ctrlUporabniki.preberiIzbranega);
 
 router.post('/uporabniki/izbrisi/:id', ctrlUporabniki.izbrisiIzbranega)
-
 
 /**
  *  Routes for oglasi

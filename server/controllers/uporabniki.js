@@ -64,8 +64,32 @@ const izbrisiIzbranega = (req, res) => {
   }
 };
 
+const posodobiUporabnika = (req, res) => {
+
+    console.log("Posodobi uporabnika", req.body)
+    let uporabnik = req.body
+    console.log(uporabnik.opis)
+
+    Uporabniki
+        .updateOne({ 
+            _id: uporabnik._id 
+        }, {
+            $set: {
+                ime: uporabnik.ime,
+                elektronskiNaslov: uporabnik.elektronskiNaslov,
+                opis: uporabnik.opis
+            }
+        }).then(() => {
+            res.status(200).json(null)
+        }).catch(napaka => {
+            console.log(napaka)
+            res.status(500).json(napaka)
+    })
+}
+
 module.exports = {
     uporabnikiSeznam,
     preberiIzbranega,
-    izbrisiIzbranega
+    izbrisiIzbranega,
+    posodobiUporabnika
 }
