@@ -17,10 +17,11 @@ import { PrikazKategorijeComponent } from './components/prikaz-kategorije/prikaz
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import { PodrobnostiRastlineComponent } from './components/podrobnosti-rastline/podrobnosti-rastline.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import { AddOglasComponent } from './components/add-oglas/add-oglas.component';
 import { NastavitveComponent } from './components/nastavitve/nastavitve.component';
 import {MatSelectModule} from '@angular/material/select';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {MatSelectModule} from '@angular/material/select';
     PrikazKategorijeComponent,
     PodrobnostiRastlineComponent,
     AddOglasComponent,
-    NastavitveComponent
+    NastavitveComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     MatSelectModule
   ],
   providers: [],

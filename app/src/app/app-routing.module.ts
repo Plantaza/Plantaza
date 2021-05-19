@@ -11,6 +11,7 @@ import {PrikazKategorijeComponent} from './components/prikaz-kategorije/prikaz-k
 import {PodrobnostiRastlineComponent} from "./components/podrobnosti-rastline/podrobnosti-rastline.component";
 import { AddOglasComponent } from './components/add-oglas/add-oglas.component';
 import { NastavitveComponent } from './components/nastavitve/nastavitve.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'oglas/add',
     component: AddOglasComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
   }
 ];
 

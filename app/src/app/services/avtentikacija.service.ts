@@ -45,19 +45,34 @@ export class AvtentikacijaService {
     else return ""
   }
 
-  public vrniTrenutnegaUporabnika(): Uporabnik {
+  public vrniTrenutnegaUporabnika(): Promise<any> {
     if (this.jePrijavljen()) {
-      const token: string = this.vrniZeton();
-      const {
-        _id,
-        ime,
-        email
-        } = JSON.parse(atob(token.split('.')[1]));
-      return {
-        _id,
-        ime,
-        email
-      } as unknown as Uporabnik;
+      // const token: string = this.vrniZeton();
+      // console.log(token)
+      // const {
+      //   elektronskiNaslov,
+      //   ime,
+      //   opis,
+      //   zgoscenaVrednost,
+      //   nakljucnaVrednost,
+      //   _id
+      //   } = JSON.parse(atob(token.split('.')[1]));
+      // return {
+      //   elektronskiNaslov,
+      //   ime,
+      //   opis,
+      //   zgoscenaVrednost,
+      //   nakljucnaVrednost,
+      //   _id } as Uporabnik;
+
+      let id = this.vrniTrenutnegaUporabnikaId()
+
+      const url: string = `${this.apiUrl}/uporabnik/${id}`;
+      return this.http
+        .get(url)
+        .toPromise()
+        .then(odgovor => odgovor as Uporabnik)
+        .catch(AvtentikacijaService.obdelajNapako)
     }
     else{
       return null;
@@ -99,4 +114,10 @@ export class AvtentikacijaService {
     this.shramba.setItem('prijavni-zeton', zeton);
 
   }
+
+  private static obdelajNapako(napaka: any): Promise<any> {
+    console.error('Prišlo je do napake', napaka);
+    return Promise.reject(napaka.message || napaka);
+  }
 }
+

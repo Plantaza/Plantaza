@@ -29,6 +29,7 @@ const registracija = (req, res) => {
 };
 
 const prijava = (req, res) => {
+    console.log("Prijava uporabnika")
     if (!req.body.elektronskiNaslov || !req.body.geslo) {
         return res.status(400).json({"sporočilo": "Zahtevani so vsi podatki"});
     }

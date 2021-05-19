@@ -1,0 +1,63 @@
+.nastavitve {
+  font-size: large;
+  margin-bottom: 1rem;
+}
+
+.nastavitve_profila {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #e7e7e7;
+}
+
+.nastavitve_menjalnice {
+  margin-top: 1rem;
+}
+
+.pomoc {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #e7e7e7;
+  margin-top: 1rem;
+}
+
+
+.nastavitve_profila .naslov {
+  color: #bdbdbd;
+  font-size: small;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+
+.nastavitve_profila .nastavitev {
+  font-size: medium;
+  padding-bottom: 0.5rem;
+}
+
+.nastavitve_menjalnice .naslov {
+  color: #bdbdbd;
+  font-size: small;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+
+.nastavitve_menjalnice .nastavitev {
+  font-size: medium;
+  padding-bottom: 0.5rem;
+}
+
+
+.pomoc .naslov {
+  color: #bdbdbd;
+  font-size: small;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+
+.pomoc .nastavitev {
+  font-size: medium;
+  padding-bottom: 0.5rem;
+}
+
+.distance {
+  color:#979797;
+}
