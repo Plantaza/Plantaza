@@ -27,10 +27,15 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
 
+<<<<<<< HEAD
             <a class="nav-item nav-link" routerLink="swipe" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-compress-alt"></i> Swipe</a>
+=======
+      <a *ngIf="loggedUser" class="nav-item nav-link" routerLink="swipe" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-compress-alt"></i> Swipe</a>
+>>>>>>> 6fc876d1160689355285b29d881fcf2349695e18
 
             <a class="nav-item nav-link" routerLink="kategorije" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-tree"></i> Kategorije</a>
 
+<<<<<<< HEAD
             <a class="nav-item nav-link" routerLink="plant/add" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-seedling"></i> dodaj rastlino</a>
 
             <a class="nav-item nav-link" routerLink="oglas/add" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-plus"></i> dodaj oglas</a>
@@ -41,6 +46,21 @@
 
             <a class="nav-item nav-link" routerLink="logout" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-sign-out-alt"></i> Odjava</a>
         </div>
+=======
+      <a *ngIf="loggedUser" class="nav-item nav-link" routerLink="plant/add" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-seedling"></i> dodaj rastlino</a>
+
+      <a *ngIf="loggedUser" class="nav-item nav-link" routerLink="oglas/add" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-plus"></i> dodaj oglas</a>
+
+      <a *ngIf="loggedUser" class="nav-item nav-link" routerLink="profile" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-user-alt"></i> Profil</a>
+
+      <a *ngIf="loggedUser" class="nav-item nav-link" routerLink="nastavitve" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-cog"></i> Nastavitve</a>
+
+      <a *ngIf="loggedUser" class="nav-item nav-link" routerLink="logout" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-sign-out-alt"></i> Odjava</a>
+
+      <a *ngIf="!loggedUser" class="nav-item nav-link" routerLink="login" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-sign-in-alt"></i> Prijava</a>
+
+      <a *ngIf="!loggedUser" class="nav-item nav-link" routerLink="register" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-sign-in-alt"></i> Registracija</a>
+>>>>>>> 6fc876d1160689355285b29d881fcf2349695e18
     </div>
 </nav>
 

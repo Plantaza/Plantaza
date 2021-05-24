@@ -16,7 +16,7 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.avtentikacijaStoritev.odjava()
-    this.router.navigate(['login'])
+    window.location.href = 'login'
   }
 
 }
