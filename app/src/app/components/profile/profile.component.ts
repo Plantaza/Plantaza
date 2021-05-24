@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Uporabnik } from 'src/app/classes/uporabnik';
 import { AvtentikacijaService } from 'src/app/services/avtentikacija.service';
 
@@ -7,8 +7,11 @@ import { AvtentikacijaService } from 'src/app/services/avtentikacija.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
+
 export class ProfileComponent implements OnInit {
 
+  @ViewChild('file_input') myInput: ElementRef<HTMLElement>
   uporabnik: Uporabnik = {
     _id: "",
     elektronskiNaslov: "",
@@ -27,6 +30,10 @@ export class ProfileComponent implements OnInit {
       .then(odgovor => {
         console.log("Uporabnik posodobljen")
       })
+  }
+
+  public fileUpload() {
+    this.myInput.nativeElement.click()
   }
 
   ngOnInit(): void {
