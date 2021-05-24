@@ -12,6 +12,9 @@ import {PodrobnostiRastlineComponent} from "./components/podrobnosti-rastline/po
 import { AddOglasComponent } from './components/add-oglas/add-oglas.component';
 import { NastavitveComponent } from './components/nastavitve/nastavitve.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { FavouritesComponent } from './components/favourites/favourites.component';
+import { SeznamKlepetovComponent } from './components/seznam-klepetov/seznam-klepetov.component';
+import { KlepetComponent } from './components/klepet/klepet.component';
 
 const routes: Routes = [
   {
@@ -61,6 +64,18 @@ const routes: Routes = [
   {
     path: 'logout',
     component: LogoutComponent
+  },
+  {
+    path: 'favourites',
+    component: FavouritesComponent
+  },
+  {
+    path: 'klepet',
+    component: SeznamKlepetovComponent
+  },
+  {
+    path: 'klepet/:id',
+    component: KlepetComponent
   }
 ];
 
