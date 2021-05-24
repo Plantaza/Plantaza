@@ -12,7 +12,10 @@ export class SwipeComponent implements OnInit {
 
   current :any
   oglasi : Oglas[]  = []
-  constructor(private oglasiService:OglasiService) { }
+  oglas: Oglas
+  constructor(
+    private oglasiService:OglasiService
+  ) { }
 
   rastlina : any
   // rastlina = {
@@ -23,16 +26,15 @@ export class SwipeComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this.current =0
+    this.current = 0
     this.oglasiService.pridobiOglase().then((oglasi : Oglas[]) => {
       this.oglasi = oglasi
+      this.oglas = this.oglasi[this.current]
       console.log(this.oglasi)
       this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina)=> {
         this.rastlina = rastlina
       })
     })
-
-
   }
 
   onAccept(){
@@ -41,6 +43,7 @@ export class SwipeComponent implements OnInit {
     if(this.current >= this.oglasi.length) this.current = 0
     this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina)=> {
       this.rastlina = rastlina
+      this.oglas = this.oglasi[this.current]
     })
   }
 
@@ -50,6 +53,7 @@ export class SwipeComponent implements OnInit {
     if(this.current >= this.oglasi.length) this.current = 0
     this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina)=> {
       this.rastlina = rastlina
+      this.oglas = this.oglasi[this.current]
     })
   }
 
@@ -58,6 +62,7 @@ export class SwipeComponent implements OnInit {
     if(this.current >= this.oglasi.length) this.current = 0
     this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina)=> {
       this.rastlina = rastlina
+      this.oglas = this.oglasi[this.current]
     })
   }
 
