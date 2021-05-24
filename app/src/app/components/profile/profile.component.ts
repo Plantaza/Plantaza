@@ -18,22 +18,35 @@ export class ProfileComponent implements OnInit {
     opis: "",
     ime: "",
     zgoscenaVrednost: "",
-    nakljucnaVrednost: ""
+    nakljucnaVrednost: "",
+    slika: null
   }
+
+  file1: File
 
   constructor(
     private avtentikacijaStoritev: AvtentikacijaService
   ) { }
 
   public shraniSpremembe() {
-    this.avtentikacijaStoritev.shraniSpremembe(this.uporabnik)
-      .then(odgovor => {
-        console.log("Uporabnik posodobljen")
-      })
+
+    let reader = new FileReader();
+    reader.readAsDataURL(this.file1);
+    reader.onloadend = (e) => {
+
+      this.uporabnik.slika = reader.result as string
+
+      this.avtentikacijaStoritev.shraniSpremembe(this.uporabnik)
+        .then(odgovor => {
+          console.log("Uporabnik posodobljen")
+        })
+      }
   }
 
-  public fileUpload() {
-    this.myInput.nativeElement.click()
+  public dodajFile(e: Event) {
+    this.file1 = (<HTMLInputElement>e.target).files[0]
+
+    console.log(this.file1)
   }
 
   ngOnInit(): void {

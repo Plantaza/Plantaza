@@ -1,1 +1,17 @@
-<p>seznam-klepetov works!</p>
+<div class="container text-left">
+  <h1><b>Seznam klepetov</b></h1>
+</div>
+
+<div class="container">
+
+  <div class="oglas mb-2 shadow border" *ngFor="let uporabnik of uporabniki">
+    <div class="row">
+      <div class="col image text-left">
+        <img src="{{uporabnik.slika}}" alt="slika oglasa" width="100rem">
+      </div>
+      <div class="col text-right image_container">
+        <img class="image" src="../../../assets/images/lajk.png" alt="lajk">
+      </div>
+    </div>
+  </div>
+</div>

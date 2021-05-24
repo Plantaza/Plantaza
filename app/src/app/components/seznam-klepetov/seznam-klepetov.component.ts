@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Uporabnik } from 'src/app/classes/uporabnik';
+import { AvtentikacijaService } from 'src/app/services/avtentikacija.service';
 
 @Component({
   selector: 'app-seznam-klepetov',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeznamKlepetovComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private avtentikacijaStoritev: AvtentikacijaService
+  ) { }
+
+    uporabniki: Uporabnik[]
+
 
   ngOnInit(): void {
+    this.avtentikacijaStoritev.vrniUporabnike()
+      .then(odgovor => {
+        this.uporabniki = odgovor
+      })
   }
 
 }

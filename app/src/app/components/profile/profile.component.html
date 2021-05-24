@@ -5,10 +5,10 @@
 
   <div class="input_fields text-center justify-content-center">
     <div class="image text-center">
-      <img id="file_input"  src="../../../assets/images/img_add_placeholder_round.png" width="50%">
+      <img id="file_input"  src="{{uporabnik.slika}}" width="50%">
       <div class="custom-file">
         <!-- <label for="myfile">Select a file:</label> -->
-        <input type="file" id="myfile" name="myfile" #fileUpload>
+        <input *ngIf="!uporabnik.slika" type="file" id="myfile" name="myfile" (change)="dodajFile($event)" #fileUpload>
       </div>
     </div>
 

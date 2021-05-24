@@ -7,7 +7,8 @@ const uporabnikiShema = new mongoose.Schema({
     ime: { type: String, required: true },
     opis: { type:String, required: false },
     zgoscenaVrednost: { type: String, required: true },
-    nakljucnaVrednost: { type: String, required: true }
+    nakljucnaVrednost: { type: String, required: true },
+    slika: { type: String, required: false }
 });
 
 uporabnikiShema.methods.nastaviGeslo = function (geslo) {

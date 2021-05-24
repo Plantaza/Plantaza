@@ -77,7 +77,8 @@ const posodobiUporabnika = (req, res) => {
             $set: {
                 ime: uporabnik.ime,
                 elektronskiNaslov: uporabnik.elektronskiNaslov,
-                opis: uporabnik.opis
+                opis: uporabnik.opis,
+                slika: uporabnik.slika
             }
         }).then(() => {
             res.status(200).json(null)
