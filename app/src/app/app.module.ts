@@ -22,6 +22,9 @@ import { AddOglasComponent } from './components/add-oglas/add-oglas.component';
 import { NastavitveComponent } from './components/nastavitve/nastavitve.component';
 import {MatSelectModule} from '@angular/material/select';
 import { LogoutComponent } from './components/logout/logout.component';
+import { FavouritesComponent } from './components/favourites/favourites.component';
+import { SeznamKlepetovComponent } from './components/seznam-klepetov/seznam-klepetov.component';
+import { KlepetComponent } from './components/klepet/klepet.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { LogoutComponent } from './components/logout/logout.component';
     PodrobnostiRastlineComponent,
     AddOglasComponent,
     NastavitveComponent,
-    LogoutComponent
+    LogoutComponent,
+    FavouritesComponent,
+    SeznamKlepetovComponent,
+    KlepetComponent
   ],
   imports: [
     BrowserModule,
