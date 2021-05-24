@@ -1,64 +1,56 @@
 <div class="container">
-  <div class="naslov">
-    Dodaj rastlino
-  </div>
+    <div class="naslov">
+        Dodaj rastlino
+    </div>
 
-  <div class="input_fileds text-center">
-    <!-- <div class="image">
+    <div class="input_fileds text-center">
+        <!-- <div class="image">
       <img src="../../../assets/images/img_add_placeholder.png" width="50%">
     </div> -->
 
-    <div class="vnosna_polja col-10 text-center justify-content-center">
-      <form [formGroup]="podatki">
+        <div class="vnosna_polja col-10 text-center justify-content-center">
+            <form [formGroup]="podatki">
 
-        <div class="form-group">
-					<!-- <label>Naložite sliko svoje rastline</label> -->
-					<div class="custom-file">
-						<!-- <label for="myfile">Select a file:</label> -->
-            <input type="file" id="myfile" name="myfile" (change)="dodajFile($event)" #fileUpload>
-					</div>
-				</div>
+                <div class="form-group">
+                    <!-- <label>Naložite sliko svoje rastline</label> -->
+                    <div class="custom-file">
+                        <!-- <label for="myfile">Select a file:</label> -->
+                        <input type="file" id="myfile" name="myfile" (change)="dodajFile($event)" #fileUpload>
+                    </div>
+                </div>
 
-        <div class="form-group">
-          <input type="text" class="form-control" formControlName="ime" placeholder="Ime rastine">
-        </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="ime" placeholder="Ime rastine">
+                </div>
 
-        <div class="form-group">
-          <!-- <input type="text" class="form-control" formControlName="kategorija" placeholder="Kategorija"> -->
-          <select
-              class="custom-select form-control"
-              id="inputGroupSelect01"
-              style="border: 0;"
-              formControlName="kategorija">
+                <div class="form-group">
+                    <!-- <input type="text" class="form-control" formControlName="kategorija" placeholder="Kategorija"> -->
+                    <select class="custom-select form-control" id="inputGroupSelect01" style="border: 0;" formControlName="kategorija">
             <option selected disabled>Kategorija</option>
             <option
                 *ngFor="let kategorija of kategorije"
                 [ngValue]="kategorija.viewValue"
                 >{{kategorija.viewValue}}</option>
           </select>
-        </div>
+                </div>
 
-        <div class="form-group">
-          <input type="number" class="form-control" formControlName="svetloba" placeholder="Potreba po svetlobi (%)">
-        </div>
-        <div class="form-group">
-          <input type="number" class="form-control" formControlName="vlaga" placeholder="Procent ohranjanja vlage (%)">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" formControlName="opis" placeholder="Opis">
-        </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" formControlName="svetloba" placeholder="Potreba po svetlobi (%)">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" formControlName="vlaga" placeholder="Procent ohranjanja vlage (%)">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="opis" placeholder="Opis">
+                </div>
 
-        <div class="form-group">
-          <button
-              class="btn btn-outline-success btn-block"
-              (click)="dodajRastlino()"
-              type="submit"
-              >Dodaj</button>
+                <div class="form-group">
+                    <button class="btn btn-outline-success btn-block" (click)="dodajRastlino()" type="submit">Dodaj</button>
+                </div>
+            </form>
+
         </div>
-      </form>
 
     </div>
-
-  </div>
 
 </div>

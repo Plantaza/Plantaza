@@ -15,33 +15,33 @@
 </div> -->
 
 <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light" style="position: fixed;">
-  <div class="row">
-    <div class="col">
-      <img (click)="backClicked()" src="../../../assets/images/puscica.png" width="20%" alt="back">
+    <div class="row">
+        <div class="col">
+            <img (click)="backClicked()" src="../../../assets/images/puscica.png" width="20%" alt="back">
+        </div>
+        <div class="col" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="float: right;">
+            <img src="../../../assets/images/profile.png" width="20%" style="float: right">
+        </div>
     </div>
-    <div class="col" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="float: right;">
-      <img src="../../../assets/images/profile.png" width="20%" style="float: right">
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+
+            <a class="nav-item nav-link" routerLink="swipe" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-compress-alt"></i> Swipe</a>
+
+            <a class="nav-item nav-link" routerLink="kategorije" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-tree"></i> Kategorije</a>
+
+            <a class="nav-item nav-link" routerLink="plant/add" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-seedling"></i> dodaj rastlino</a>
+
+            <a class="nav-item nav-link" routerLink="oglas/add" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-plus"></i> dodaj oglas</a>
+
+            <a class="nav-item nav-link" routerLink="profile" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-user-alt"></i> Profil</a>
+
+            <a class="nav-item nav-link" routerLink="nastavitve" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-cog"></i> Nastavitve</a>
+
+            <a class="nav-item nav-link" routerLink="logout" data-toggle="collapse" data-target="#navbarNavAltMarkup"><i class="fas fa-sign-out-alt"></i> Odjava</a>
+        </div>
     </div>
-  </div>
-
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-
-      <a class="nav-item nav-link" routerLink="swipe" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-compress-alt"></i> Swipe</a>
-
-      <a class="nav-item nav-link" routerLink="kategorije" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-tree"></i> Kategorije</a>
-
-      <a class="nav-item nav-link" routerLink="plant/add" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-seedling"></i> dodaj rastlino</a>
-
-      <a class="nav-item nav-link" routerLink="oglas/add" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-plus"></i> dodaj oglas</a>
-
-      <a class="nav-item nav-link" routerLink="profile" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-user-alt"></i> Profil</a>
-
-      <a class="nav-item nav-link" routerLink="nastavitve" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-cog"></i> Nastavitve</a>
-
-      <a class="nav-item nav-link" routerLink="logout" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-sign-out-alt"></i> Odjava</a>
-    </div>
-  </div>
 </nav>
 
 
