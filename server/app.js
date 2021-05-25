@@ -26,9 +26,7 @@ app.use(bodyParser.json({ limit: '10mb' }))
 //     next();
 // });
 
-// // view engine setup
-// app.set('views', path.join(__dirname, 'app_server', 'views'));
-// app.set('view engine', 'hbs');
+app.use(express.static(path.join(__dirname, '..', 'app', 'dist', 'app')));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -46,6 +44,9 @@ app.use('/api', (req, res, next) => {
 
 app.use('/api', indexApi);
 
+app.get(/\/*/, (req, res, next) => {
+    res.sendFile(path.join(__dirname, '..','app', 'dist','app', 'index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
