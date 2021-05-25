@@ -16,6 +16,7 @@ import { FavouritesComponent } from './components/favourites/favourites.componen
 import { SeznamKlepetovComponent } from './components/seznam-klepetov/seznam-klepetov.component';
 import { KlepetComponent } from './components/klepet/klepet.component';
 import {SprejeteComponent} from "./components/sprejete/sprejete.component";
+import {ShranjenoComponent} from "./components/shranjeno/shranjeno.component";
 
 const routes: Routes = [
   {
@@ -67,8 +68,8 @@ const routes: Routes = [
     component: LogoutComponent
   },
   {
-    path: 'sprejete',
-    component: SprejeteComponent
+    path: 'shranjeno',
+    component: ShranjenoComponent
   },
   {
     path: 'klepet',

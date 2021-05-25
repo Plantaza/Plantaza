@@ -15,6 +15,7 @@ const registracija = (req, res) => {
     uporabnik.opis = "";
     uporabnik.sprejetiOglasi = [];
     uporabnik.zavrnjeniOglasi = [];
+    uporabnik.shranjeneRastline = [];
     uporabnik.save(napaka => {
         if (napaka) {
             if (napaka.name == "MongoError" && napaka.code == 11000) {

@@ -26,11 +26,18 @@
                 {{rastlina.procentOhranjanjaVlage}} %
             </div>
         </div>
-        <div class="col text-center">
+        <div class="col text-center" *ngIf="!jeshranjena" (click)="shrani()">
             <img src="assets/images/heart.svg" style="max-width: 100px; max-height: 100px" class="pb-3">
             <div>
                 shrani
             </div>
+        </div>
+        <div class="col text-center" *ngIf="jeshranjena" (click)="odshrani()">
+<!--          todo change heart to heart with green in back-->
+          <img src="assets/images/heart.svg" style="max-width: 100px; max-height: 100px" class="pb-3">
+          <div>
+            shranjeno
+          </div>
         </div>
     </div>
     <div class="row mb-5">
@@ -39,5 +46,7 @@
     <div class="row">
         <p style="color: dimgrey">{{rastlina.opis}}</p>
     </div>
+    <div id="snackbar">Rastlina je shranjena med priljubljene!</div>
+    <div id="unsnackbar">Rastlina je odstranjena od priljubljenih!</div>
 </div>
 </div>

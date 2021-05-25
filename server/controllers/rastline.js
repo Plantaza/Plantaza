@@ -1,5 +1,7 @@
+
 const mongoose = require('mongoose');
 const Rastline = mongoose.model('Rastline');
+const Uporabnik = mongoose.model('Uporabniki')
 
 const getRastlina = (req, res) => {
 
@@ -128,6 +130,41 @@ const deleteRastlina = (req, res) => {
         })
 }
 
+const shraniRastlina = (req, res) => {
+    Uporabnik
+        .findByIdAndUpdate(req.body.uporabnikId , {$push: {"shranjeneRastline": req.body._id}}, {safe: true, upsert: true, new: true},
+            function(napaka, uporabnik) {
+
+
+                if(napaka){
+                    res.status(400).json(napaka)
+                }
+                else if(!uporabnik){
+                    res.status(404).json({"sporocilo":"Uporabnik ni najden"})
+                }
+                else{
+                    res.status(200).json(uporabnik)
+
+                }
+            })
+}
+const odshraniRastlina = (req, res) => {
+    Uporabnik
+        .findByIdAndUpdate(req.body.uporabnikId , {$pullAll: {"shranjeneRastline": [req.body._id]}}, {safe: true, upsert: true},
+            function(napaka, uporabnik) {
+                if(napaka){
+                    res.status(400).json(napaka)
+                }
+                else if(!uporabnik){
+                    res.status(404).json({"sporocilo":"Uporabnik ni najden"})
+                }
+                else{
+                    res.status(200).json(uporabnik)
+
+                }
+            })
+}
+
 module.exports = {
     getRastlina,
     getRastlinaByName,
@@ -135,5 +172,7 @@ module.exports = {
     kreirajRastlino,
     filterKategorija,
     filterPodKategorija,
-    deleteRastlina
+    deleteRastlina,
+    shraniRastlina,
+    odshraniRastlina
 }

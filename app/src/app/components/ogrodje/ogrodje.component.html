@@ -41,6 +41,8 @@
 
       <a *ngIf="loggedUser" class="nav-item nav-link" routerLink="nastavitve" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-cog" style="width: 5px; margin-right: 8px"></i>&nbsp; Nastavitve</a>
 
+      <a *ngIf="loggedUser" class="nav-item nav-link" routerLink="shranjeno" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-heart" style="width: 5px; margin-right: 8px"></i>&nbsp; Shranjene rastline</a>
+
       <a *ngIf="loggedUser" class="nav-item nav-link" routerLink="logout" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-sign-out-alt" style="width: 5px; margin-right: 8px"></i>&nbsp; Odjava</a>
 
       <a *ngIf="!loggedUser" class="nav-item nav-link" routerLink="login" data-toggle="collapse" data-target="#navbarNavAltMarkup" ><i class="fas fa-sign-in-alt" style="width: 5px; margin-right: 8px"></i>&nbsp; Prijava</a>

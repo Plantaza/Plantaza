@@ -8,4 +8,5 @@ export class Uporabnik {
   sprejetiOglasi: string[]
   zavrnjeniOglasi: string[]
   slika: string | undefined
+  shranjeneRastline: string[]
 }

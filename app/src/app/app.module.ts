@@ -26,6 +26,7 @@ import { SprejeteComponent } from './components/sprejete/sprejete.component';
 import { KlepetComponent } from './components/klepet/klepet.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
 import { SeznamKlepetovComponent } from './components/seznam-klepetov/seznam-klepetov.component';
+import { ShranjenoComponent } from './components/shranjeno/shranjeno.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SeznamKlepetovComponent } from './components/seznam-klepetov/seznam-kle
     SprejeteComponent,
     KlepetComponent,
     FavouritesComponent,
-    SeznamKlepetovComponent
+    SeznamKlepetovComponent,
+    ShranjenoComponent
   ],
   imports: [
     BrowserModule,

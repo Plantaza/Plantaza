@@ -21,7 +21,8 @@ export class ProfileComponent implements OnInit {
     nakljucnaVrednost: "",
     sprejetiOglasi: [],
     zavrnjeniOglasi: [],
-    slika: null
+    slika: null,
+    shranjeneRastline: []
   }
 
   file1: File

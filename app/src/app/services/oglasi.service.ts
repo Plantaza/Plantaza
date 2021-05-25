@@ -130,4 +130,43 @@ export class OglasiService {
       .then(uporabnik => uporabnik as Uporabnik)
       .catch(OglasiService.obdelajNapako);
   }
+
+  shraniRastlino(_id: any, uporabnikId: any) {
+    const url: string = `${this.apiUrl}/rastlina/shrani`;
+
+    const paket = {
+      "_id": _id,
+      "uporabnikId": uporabnikId
+    }
+    const httpLastnosti = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.avtentikacijaService.vrniZeton()}`
+      })
+    };
+
+    return this.http
+      .post(url, paket, httpLastnosti)
+      .toPromise()
+      .then(uporabnik => uporabnik as Uporabnik)
+      .catch(OglasiService.obdelajNapako);
+  }
+  odshraniRastlino(_id: any, uporabnikId: any) {
+    const url: string = `${this.apiUrl}/rastlina/odshrani`;
+
+    const paket = {
+      "_id": _id,
+      "uporabnikId": uporabnikId
+    }
+    const httpLastnosti = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.avtentikacijaService.vrniZeton()}`
+      })
+    };
+
+    return this.http
+      .post(url, paket, httpLastnosti)
+      .toPromise()
+      .then(uporabnik => uporabnik as Uporabnik)
+      .catch(OglasiService.obdelajNapako);
+  }
 }

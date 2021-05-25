@@ -10,7 +10,8 @@ const uporabnikiShema = new mongoose.Schema({
     nakljucnaVrednost: { type: String, required: true },
     sprejetiOglasi: {type: [String]},
     zavrnjeniOglasi: {type: [String]},
-    slika: { type: String, required: false }
+    slika: { type: String, required: false },
+    shranjeneRastline: {type: [String]}
 });
 
 uporabnikiShema.methods.nastaviGeslo = function (geslo) {

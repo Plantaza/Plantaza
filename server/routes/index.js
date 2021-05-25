@@ -32,6 +32,10 @@ router.get('/rastlina/podkategorija/:podkategorija', ctrlRastline.filterPodKateg
 
 router.delete('/rastlina/delete/:id', ctrlRastline.deleteRastlina);
 
+router.post('/rastlina/shrani', ctrlRastline.shraniRastlina)
+
+router.post('/rastlina/odshrani', ctrlRastline.odshraniRastlina)
+
 /**
  *  Routes for avtentikacija
  */
