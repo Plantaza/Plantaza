@@ -12,6 +12,7 @@ const ctrlAvtentikacija = require('../controllers/avtentikacija');
 const ctrlRastline = require('../controllers/rastline');
 const ctrlUporabniki = require('../controllers/uporabniki');
 const ctrlOglasi = require('../controllers/oglasi');
+const ctrlMessages = require('../controllers/klepet')
 
 /**
  *  Routes for rastlina
@@ -63,6 +64,18 @@ router.get('/oglas/izbrisi/:id', ctrlOglasi.oglasiIzbrisiIzbranega);
 
 router.post('/oglas/uporabnik/:id', ctrlOglasi.oglasiUporabnika);
 
+router.post('/oglas/sprejmi', ctrlOglasi.sprejmiOglas)
 
+router.post('/oglas/zavrni', ctrlOglasi.zavrniOglas)
+
+/**
+ * Routes for klepet
+ */
+
+router.post("/klepeti", ctrlMessages.noviKlepet)
+
+router.post("/sporocilo", ctrlMessages.novoSporocilo)
+
+router.get("/klepeti", ctrlMessages.pridobiKlepete)
 
 module.exports = router;

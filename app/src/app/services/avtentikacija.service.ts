@@ -44,6 +44,16 @@ export class AvtentikacijaService {
     }
     else return ""
   }
+  public vrniTrenutnegaUporabnikaIme(): any {
+    if (this.jePrijavljen()) {
+      const zeton: string = this.vrniZeton();
+      const {ime} = JSON.parse(this.b64Utf8(zeton.split('.')[1]));
+      // console.log("ID: ",ime);
+      return ime
+    }
+    else return ""
+  }
+
 
   public vrniTrenutnegaUporabnika(): Promise<any> {
     if (this.jePrijavljen()) {
@@ -132,6 +142,39 @@ export class AvtentikacijaService {
   public shraniZeton(zeton: string): void {
     this.shramba.setItem('prijavni-zeton', zeton);
 
+  }
+
+  public pridobiKlepete(uporabnikId: string): Promise<any> {
+    const url: string = `${this.apiUrl}/klepeti?uporabnikId=${uporabnikId}`
+    return this.http
+      .get(url)
+      .toPromise()
+      .then((klepeti) => {
+        return klepeti;
+      })
+      .catch(AvtentikacijaService.obdelajNapako)
+  }
+
+  public posljiSporocilo(data: any): Promise<any> {
+    const url: string = `${this.apiUrl}/sporocilo`
+    return this.http
+      .post(url, data)
+      .toPromise()
+      .then((odgovor) => {
+        return odgovor;
+      })
+      .catch(AvtentikacijaService.obdelajNapako)
+  }
+
+  public ustvariKlepet(clani: any): Promise<any> {
+    const url: string = `${this.apiUrl}/klepeti`
+    return this.http
+      .post(url, { "clani": clani })
+      .toPromise()
+      .then((odgovor) => {
+        return odgovor;
+      })
+      .catch(AvtentikacijaService.obdelajNapako)
   }
 
   private static obdelajNapako(napaka: any): Promise<any> {

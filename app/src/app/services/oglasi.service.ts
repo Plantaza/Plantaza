@@ -4,6 +4,7 @@ import {environment} from "../../environments/environment";
 import { AvtentikacijaService } from './avtentikacija.service';
 import { Oglas } from '../classes/oglas';
 import { Rastlina } from '../classes/rastlina';
+import {Uporabnik} from "../classes/uporabnik";
 
 
 @Injectable({
@@ -90,8 +91,43 @@ export class OglasiService {
 			.catch(OglasiService.obdelajNapako);
   }
 
+  public zavrniOglas(oglas: any): Promise<any> {
+
+    const url: string = `${this.apiUrl}/oglas/zavrni`;
+
+    const httpLastnosti = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.avtentikacijaService.vrniZeton()}`
+      })
+    };
+
+    return this.http
+      .post(url, oglas, httpLastnosti)
+      .toPromise()
+      .then(uporabnik => uporabnik as Uporabnik)
+      .catch(OglasiService.obdelajNapako);
+  }
+
+
   private static obdelajNapako(napaka: any): Promise<any> {
     console.error('Prišlo je do napake', napaka);
     return Promise.reject(napaka.message || napaka);
+  }
+
+  public sprejmiOglas(oglas: any): Promise<any> {
+
+    const url: string = `${this.apiUrl}/oglas/sprejmi`;
+
+    const httpLastnosti = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.avtentikacijaService.vrniZeton()}`
+      })
+    };
+
+    return this.http
+      .post(url, oglas, httpLastnosti)
+      .toPromise()
+      .then(uporabnik => uporabnik as Uporabnik)
+      .catch(OglasiService.obdelajNapako);
   }
 }

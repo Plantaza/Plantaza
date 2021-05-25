@@ -13,6 +13,8 @@ const registracija = (req, res) => {
     uporabnik.elektronskiNaslov = req.body.elektronskiNaslov;
     uporabnik.nastaviGeslo(req.body.geslo);
     uporabnik.opis = "";
+    uporabnik.sprejetiOglasi = [];
+    uporabnik.zavrnjeniOglasi = [];
     uporabnik.save(napaka => {
         if (napaka) {
             if (napaka.name == "MongoError" && napaka.code == 11000) {

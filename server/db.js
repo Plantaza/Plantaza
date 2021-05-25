@@ -57,3 +57,4 @@ process.on('SIGTERM', () => {
 require('./models/uporabniki');
 require('./models/rastline');
 require('./models/oglasi');
+require('./models/klepet')

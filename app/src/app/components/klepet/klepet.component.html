@@ -1,0 +1,38 @@
+<div class="container-fluid content">
+  <div *ngIf="!this.klepeti"><h1>Za začetek klepeta si najprej izberite rastlino, ki bi jo radi zamenjali.</h1></div>
+  <div *ngIf="this.klepeti">
+    <div style="font-weight: 700; font-size: 20px;">Klepeti</div>
+    <div *ngFor="let klepet of this.klepeti">
+      <div class="klepet-choice" [style.background-color]="barvaKlepeta(klepet._id)">
+        <div style="font-weight: 500;" (click)="izberiKlepet(klepet._id)">{{klepet.imeKlepeta}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="this.izbraniKlepet">
+
+    <div class="klepet-container">
+      <div class="klepet-naslov">{{this.izbraniKlepet.imeKlepeta}}</div>
+      <div class="klepet">
+        <div *ngFor="let sporocilo of this.izbraniKlepet.sporocila">
+          <div class="sporocilo-bubble" [style.background-color]="barvaSporocila(sporocilo.lastnikId)">
+            <div style="font-weight: 500;">{{imeClana(sporocilo.lastnikId)}} <span class="datum">{{formatirajDatum(sporocilo.datum)}}</span></div>
+            <div>{{sporocilo.telo}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-container">
+        <div class="">
+          <textarea [(ngModel)]="message" id="posljiTextArea" class="text-input"></textarea>
+        </div>
+        <div class="btn btn-secondary send-button" id="posljiSporociloGumb" (click)="send()">
+          <div>Pošlji</div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

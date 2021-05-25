@@ -15,7 +15,9 @@ export class ProfileComponent implements OnInit {
     opis: "",
     ime: "",
     zgoscenaVrednost: "",
-    nakljucnaVrednost: ""
+    nakljucnaVrednost: "",
+    sprejetiOglasi: [],
+    zavrnjeniOglasi: []
   }
 
   constructor(

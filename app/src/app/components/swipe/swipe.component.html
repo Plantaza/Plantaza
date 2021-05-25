@@ -1,10 +1,7 @@
+<h1 *ngIf="rastlina === null">Ogledali ste si vse rastline. Vrnite se kmalu, ko bodo na voljo nove menjave!</h1>
 <div class="container text-center" *ngIf="rastlina">
-  <div class="naslov">
-    Izmenjevalnica
-  </div>
-
   <div class="row align-content-center">
-    <img src="{{rastlina.slika}}" class="mx-auto d-block"  style="width: 90%" routerLink="/podrobnosti/{{rastlina._id}}">
+    <img src="{{rastlina.slika}}" class="mx-auto d-block"  style="max-height: 400px; max-width: 600px; width: auto; height: auto" routerLink="/podrobnosti/{{rastlina._id}}">
   </div>
   <div class="row text-start">
     <div class="col">
@@ -14,13 +11,14 @@
   </div>
   <div class="row text-center mt-5">
 
+
       <!-- <img src="../../../assets/images/retry.svg" style="width: 10%;position: relative; left: 0; cursor: pointer" (click)="refresh()" > -->
     <div class="col">
-      <img src="../../../assets/images/cross.svg"  style="width: 40%; position: relative; cursor: pointer" (click)="onAccept()" >
+      <img src="../../../assets/images/cross.svg"  style="width: 40%; position: relative; cursor: pointer" (click)="onDeny()" >
     </div>
 
     <div class="col">
-      <img src="../../../assets/images/check.svg" style="width:40%; position: relative;cursor:pointer;" (click)="onDeny()">
+      <img src="../../../assets/images/check.svg" style="width:40%; position: relative;cursor:pointer;" (click)="onAccept()">
     </div>
   </div>
 </div>

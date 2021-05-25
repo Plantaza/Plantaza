@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const Oglasi = mongoose.model('Oglasi')
+const Uporabniki = mongoose.model('Uporabniki')
 
 const oglasiSeznam = (req, res) => {
 
@@ -115,10 +116,66 @@ const oglasiKreiraj = (req, res) => {
     });
 };
 
+const sprejmiOglas = (req, res) => {
+    var data = req.body
+    console.log("prva")
+    if(!data.idOglas){
+        return req.status(404).json({"sporocilo": "Nujno posreduj id oglasa za shranjevanje"})
+    }
+    if(!data.idUporabnik){
+        return req.status(404).json({"sporocilo": "Nujno posreduj id uporabnika za shranjevanje"})
+    }
+    console.log("druga")
+    Uporabniki
+        .findByIdAndUpdate(data.idUporabnik, {$push: {"sprejetiOglasi": data.idOglas}}, {safe: true, upsert: true, new: true},
+            function(napaka, uporabnik) {
+
+                console.log("tretja")
+                if(napaka){
+                    res.status(400).json(napaka)
+                }
+                else if(!uporabnik){
+                    res.status(404).json({"sporocilo":"Uporabnik ni najden"})
+                }
+                else{
+                    res.status(200).json(uporabnik)
+
+                }
+            })
+
+
+}
+const zavrniOglas = (req, res) => {
+    var data = req.body
+    if(!data.idOglas){
+        return req.status(404).json({"sporocilo": "Nujno posreduj id oglasa za zavrnitev"})
+    }
+    if(!data.idUporabnik){
+        return req.status(404).json({"sporocilo": "Nujno posreduj id uporabnika za zavrnitev"})
+    }
+    Uporabniki
+        .findByIdAndUpdate(data.idUporabnik, {$push: {"zavrnjeniOglasi": data.idOglas}}, {safe: true, upsert: true, new: true},
+            function(napaka, uporabnik) {
+                if(napaka){
+                    res.status(400).json(napaka)
+                }
+                else if(!uporabnik){
+                    res.status(404).json({"sporocilo":"Uporabnik ni najden"})
+                }
+                else{
+                    res.status(200).json(uporabnik)
+
+                }
+            })
+
+
+}
 module.exports = {
-  oglasiSeznam, 
-  oglasiUporabnika, 
-  oglasiPreberiIzbranega, 
+  oglasiSeznam,
+  oglasiUporabnika,
+  oglasiPreberiIzbranega,
   oglasiIzbrisiIzbranega,
-  oglasiKreiraj
+  oglasiKreiraj,
+    zavrniOglas,
+    sprejmiOglas
 }
