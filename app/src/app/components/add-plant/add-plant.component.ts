@@ -89,7 +89,7 @@ export class AddPlantComponent implements OnInit {
         this.oglasiStoritev.ustvariRastlino(this.rastlina)
           .then(oglas => {
             console.log("Oglas uspesno dodan", oglas)
-            this.router.navigate(["/katalog"])
+            this.router.navigate(["/kategorije"])
           })
           .catch(napaka => {
             console.log("Napaka pri dodajanju oglasa", napaka)
