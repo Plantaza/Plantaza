@@ -1,4 +1,4 @@
 export const environment = {
-  apiUrl: 'http://localhost:3000/api',
+  apiUrl: 'https://plantxchange.herokuapp.com/api',
   production: true
 }
