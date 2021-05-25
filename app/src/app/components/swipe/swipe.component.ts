@@ -66,7 +66,7 @@ export class SwipeComponent implements OnInit {
           this.avtentikacijaService.posljiSporocilo({
             "klepetId": odgovor.klepetId,
             "telo": "[SISTEMSKO SPOROČILO] Uporabnik "+this.avtentikacijaService.vrniTrenutnegaUporabnikaIme()+" želi zamenjati " + this.rastlina.imeRastline + " z vami!",
-            "posiljatelj": "60ac4658c6e078788c17e1b9"
+            "posiljatelj": this.avtentikacijaService.vrniTrenutnegaUporabnikaId()
           }).then(r => this.usmerjevalnik.navigate(['klepet'], {queryParams:{"klepetId": odgovor.klepetId}}))
 
 
