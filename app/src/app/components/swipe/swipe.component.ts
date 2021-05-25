@@ -67,7 +67,17 @@ export class SwipeComponent implements OnInit {
             "klepetId": odgovor.klepetId,
             "telo": "[SISTEMSKO SPOROČILO] Uporabnik "+this.avtentikacijaService.vrniTrenutnegaUporabnikaIme()+" želi zamenjati " + this.rastlina.imeRastline + " z vami!",
             "posiljatelj": this.avtentikacijaService.vrniTrenutnegaUporabnikaId()
-          }).then(r => this.usmerjevalnik.navigate(['klepet'], {queryParams:{"klepetId": odgovor.klepetId}}))
+          }).then(r => {
+            this.usmerjevalnik.navigate(['klepet'], {queryParams:{"klepetId": odgovor.klepetId}})
+            this.current++
+            if (this.current >= this.oglasi.length) this.ngOnInit()
+            else {
+              this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina) => {
+                this.rastlina = rastlina
+                this.oglas = this.oglasi[this.current]
+              })
+            }
+          })
 
 
         }
@@ -81,14 +91,7 @@ export class SwipeComponent implements OnInit {
       "idUporabnik": this.avtentikacijaService.vrniTrenutnegaUporabnikaId( )
     }).then(r => {
       this.ustvariKlepet()
-      this.current++
-      if (this.current >= this.oglasi.length) this.ngOnInit()
-      else {
-        this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina) => {
-          this.rastlina = rastlina
-          this.oglas = this.oglasi[this.current]
-        })
-      }
+
     })
 
   }
