@@ -77,10 +77,6 @@ const routes: Routes = [
   {
     path: 'favourites',
     component: FavouritesComponent
-  },
-  {
-    path: 'klepet/:id',
-    component: KlepetComponent
   }
 ];
 

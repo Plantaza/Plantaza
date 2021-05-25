@@ -65,17 +65,24 @@ export class KlepetComponent implements OnInit {
 
   public barvaSporocila(id: string): string {
     if (this.dataService.vrniTrenutnegaUporabnikaId() == id) {
-      return "#FFFFFF"
+      return "#F8F8F8"
     } else {
-      return "#a3b87a"
+      return "#707070"
+    }
+  }
+  public smersporocila(id: string): string{
+    if (this.dataService.vrniTrenutnegaUporabnikaId() == id) {
+      return "text-end"
+    } else {
+      return "text-start"
     }
   }
 
   public barvaKlepeta(id: string): string {
     if (this.izbraniKlepet && this.izbraniKlepet._id == id) {
-      return "#addaf4"
+      return "#000000"
     } else {
-      return "#dbf5ae"
+      return "#707070"
     }
   }
 
