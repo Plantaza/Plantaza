@@ -1,0 +1,17 @@
+<div class="container text-left">
+  <h1><b>Shranjene rastline</b></h1>
+</div>
+
+<div class="container">
+
+  <div class="oglas mb-2 shadow border" *ngFor="let oglas of oglasi">
+    <div class="row">
+      <div class="col image text-left">
+        <img src="{{oglas.slika}}" alt="slika oglasa" width="100rem">
+      </div>
+      <div class="col text-right image_container">
+        <img class="image" src="../../../assets/images/lajk.png" alt="lajk">
+      </div>
+    </div>
+  </div>
+</div>

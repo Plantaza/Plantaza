@@ -19,6 +19,8 @@ export class SwipeComponent implements OnInit {
     private avtentikacijaService: AvtentikacijaService,
     private usmerjevalnik: Router
   ) { }
+  oglas: Oglas
+
 
   rastlina : any
   // rastlina = {
@@ -29,9 +31,10 @@ export class SwipeComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this.current =0
+    this.current = 0
     this.oglasiService.pridobiOglase().then((oglasi : Oglas[]) => {
       this.oglasi = oglasi
+      this.oglas = this.oglasi[this.current]
       console.log(this.oglasi)
       //izlušči sprejete in zavrnjene
       this.avtentikacijaService.vrniTrenutnegaUporabnika().then((uporabnik) => {
@@ -40,11 +43,13 @@ export class SwipeComponent implements OnInit {
 
         if(this.oglasi.length == 0){
           this.rastlina = null
+          this.oglas = null
           console.log("ni več")
         }
         else{
           this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina) => {
             this.rastlina = rastlina
+            this.oglas = this.oglasi[this.current]
           })
         }
       })
@@ -77,15 +82,17 @@ export class SwipeComponent implements OnInit {
     }).then(r => {
       this.ustvariKlepet()
       this.current++
-      if(this.current >= this.oglasi.length) this.ngOnInit()
-      else{
-        this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina)=> {
+      if (this.current >= this.oglasi.length) this.ngOnInit()
+      else {
+        this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina) => {
           this.rastlina = rastlina
+          this.oglas = this.oglasi[this.current]
         })
       }
-
     })
+
   }
+
 
   onDeny(){
     //add deny functionality
@@ -98,6 +105,7 @@ export class SwipeComponent implements OnInit {
       else {
         this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina)=> {
           this.rastlina = rastlina
+          this.oglas = this.oglasi[this.current]
         })
       }
 
@@ -110,6 +118,7 @@ export class SwipeComponent implements OnInit {
     if(this.current >= this.oglasi.length) this.current = 0
     this.oglasiService.pridobiRastlinoPoId(<string>this.oglasi[this.current].idRastline).then((rastlina)=> {
       this.rastlina = rastlina
+      this.oglas = this.oglasi[this.current]
     })
   }
 

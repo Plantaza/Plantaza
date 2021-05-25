@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Rastlina } from 'src/app/classes/rastlina';
-import { Uporabnik } from 'src/app/classes/uporabnik';
-import { AvtentikacijaService } from 'src/app/services/avtentikacija.service';
-import { OglasiService } from 'src/app/services/oglasi.service';
+import { Rastlina } from '../../classes/rastlina';
+import { Uporabnik } from '../../classes/uporabnik';
+import { AvtentikacijaService } from '../../services/avtentikacija.service';
+import { OglasiService } from '../../services/oglasi.service';
 
 @Component({
   selector: 'app-add-oglas',
@@ -18,6 +18,8 @@ export class AddOglasComponent implements OnInit {
     idUporabnika: "",
     slika: ""
   }
+
+  file1: File
 
   rastlina: Rastlina = {
     imeRastline: "-",
@@ -66,21 +68,47 @@ export class AddOglasComponent implements OnInit {
     /**
      *  preverimo podatke in po potrebi poakzemo obvestila
      */
+
+
     if (this.oglas.idUporabnika.length == 0) {
      this.opozorilo.visible = true
      this.opozorilo.text = "Ne dobim uporabnika. Prijavite se in poskusite ponovno"
+     return
     } else if (this.oglas.idRastline.length == 0) {
       this.opozorilo.visible = true
       this.opozorilo.text = "Vnešena rastlina ni v bazi. Najprej dodaj novo rastlino in nato ponovno poskusi dodati oglas"
+      return
     }
 
-    this.oglasiStoritev.objaviOglas(this.oglas)
-      .then(() => {
-        console.log("Oglas uspesno dodan")
-      })
-      .catch(error => {
-        console.log("Napaka pri dodajanju oglasa", error)
-      })
+
+    if(!this.file1){
+      console.log("oddajam brez slike")
+      this.oglasiStoritev.objaviOglas(this.oglas)
+        .then(() => {
+          console.log("Oglas uspesno dodan")
+        })
+        .catch(error => {
+          console.log("Napaka pri dodajanju oglasa", error)
+        })
+    }
+
+    else {
+      let reader = new FileReader();
+      reader.readAsDataURL(this.file1);
+      reader.onloadend = (e) => {
+        console.log(reader.result)
+
+        this.oglas.slika = reader.result as string
+
+        this.oglasiStoritev.objaviOglas(this.oglas)
+          .then(() => {
+            console.log("Oglas uspesno dodan")
+          })
+          .catch(error => {
+            console.log("Napaka pri dodajanju oglasa", error)
+          })
+      }
+    }
   }
 
   public preveriRastlino() {
@@ -93,5 +121,11 @@ export class AddOglasComponent implements OnInit {
         this.oglas.slika = rastlina[0].slika
         // this.oglas.idUporabnika =
       })
+  }
+
+  public dodajFile(e: Event) {
+    this.file1 = (<HTMLInputElement>e.target).files[0]
+
+    console.log(this.file1)
   }
 }

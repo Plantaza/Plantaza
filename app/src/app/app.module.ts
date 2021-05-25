@@ -24,6 +24,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { LogoutComponent } from './components/logout/logout.component';
 import { SprejeteComponent } from './components/sprejete/sprejete.component';
 import { KlepetComponent } from './components/klepet/klepet.component';
+import { FavouritesComponent } from './components/favourites/favourites.component';
+import { SeznamKlepetovComponent } from './components/seznam-klepetov/seznam-klepetov.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { KlepetComponent } from './components/klepet/klepet.component';
     NastavitveComponent,
     LogoutComponent,
     SprejeteComponent,
-    KlepetComponent
+    KlepetComponent,
+    FavouritesComponent,
+    SeznamKlepetovComponent
   ],
   imports: [
     BrowserModule,

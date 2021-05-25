@@ -12,14 +12,20 @@ export class OgrodjeComponent implements OnInit {
   showNav = true
   showIcon: any
   route: string = ""
+  loggedUser = false
 
-  constructor(private _location: Location, router: Router, private avtentikacijaService: AvtentikacijaService) {
+  constructor(
+    private _location: Location,
+    router: Router,
+    private avtentikacijaService: AvtentikacijaService
+  ) {
     router.events.subscribe((val) => {
       this.showNav = this.avtentikacijaService.jePrijavljen()
       this.showIcon = _location.path() != '/profile';
     });
   }
   ngOnInit(): void {
+    this.loggedUser = this.avtentikacijaService.jePrijavljen()
   }
   backClicked() {
     this._location.back()

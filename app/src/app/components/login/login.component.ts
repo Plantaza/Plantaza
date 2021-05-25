@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   onClickSubmit(){
     // console.log(this.uporabnikData.value)
     this.avtentikacijaService.prijava(this.uporabnikData.value).then((result)=> {
-      this.router.navigate(["/swipe"]);
+      window.location.href = 'swipe'
 
     }).catch(err => {
       alert("User with this email/password combination does not exist.")

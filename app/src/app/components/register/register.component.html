@@ -1,34 +1,34 @@
 <div class="container">
 
-  <div class="input_fields text-center justify-content-center">
-    <div class="image text-center">
-      <img src="../../../assets/images/logo_green.png" style="cursor: pointer; width: 70%" routerLink="/">
+    <div class="input_fields text-center justify-content-center">
+        <div class="image text-center">
+            <img src="../../../assets/images/logo_green.png" style="cursor: pointer; width: 70%" routerLink="/">
+        </div>
+
+        <div class="vnosna_polja col-10">
+
+            <form [formGroup]="uporabnikData" (ngSubmit)="onClickSubmit()">
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Ime in priimek" required formControlName="ime">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Elektronska pošta" required formControlName="elektronskiNaslov">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Geslo" required formControlName="geslo">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Ponovi geslo" required formControlName="geslo2">
+                </div>
+
+                <div class="form-group buttons text-center">
+                    <!-- <input type="submit" class="login_button" value="Prijava" class="form-control"> -->
+                    <img src="../../../assets/images/registriraj_se.png" (click)="onClickSubmit()" style="cursor: pointer; width: 70%">
+                </div>
+
+            </form>
+
+        </div>
     </div>
-
-    <div class="vnosna_polja col-10">
-
-      <form [formGroup]="uporabnikData" (ngSubmit)="onClickSubmit()">
-
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Ime in priimek" required formControlName="ime">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Elektronska pošta" required formControlName="elektronskiNaslov">
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" placeholder="Geslo" required formControlName="geslo">
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" placeholder="Ponovi geslo" required formControlName="geslo2">
-        </div>
-
-        <div class="form-group buttons text-center">
-          <!-- <input type="submit" class="login_button" value="Prijava" class="form-control"> -->
-          <img src="../../../assets/images/prijava.png" (click)="onClickSubmit()" style="cursor: pointer; width: 70%" >
-        </div>
-
-      </form>
-
-    </div>
-  </div>
 </div>

@@ -6,3 +6,13 @@
   display: inline-block;
   margin: 0.5rem;
 }
+
+nav {
+  color: black;
+}
+
+a {
+  color: #272726;
+  text-decoration: none;
+}
+  

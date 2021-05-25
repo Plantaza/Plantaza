@@ -120,11 +120,22 @@ export class AvtentikacijaService {
       _id: data._id,
       ime: data.ime,
       elektronskiNaslov: data.elektronskiNaslov,
-      opis: data.opis
+      opis: data.opis,
+      slika: data.slika
     }
 
     return this.http
       .post(url, podatki)
+      .toPromise()
+      .then(odgovor => odgovor)
+      .catch(AvtentikacijaService.obdelajNapako)
+  }
+
+  public vrniUporabnike(): Promise<any> {
+    const url: string = `${this.apiUrl}/uporabnik/all`;
+
+    return this.http
+      .get(url)
       .toPromise()
       .then(odgovor => odgovor)
       .catch(AvtentikacijaService.obdelajNapako)

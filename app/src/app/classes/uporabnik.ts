@@ -7,4 +7,5 @@ export class Uporabnik {
   _id: string | undefined
   sprejetiOglasi: string[]
   zavrnjeniOglasi: string[]
+  slika: string | undefined
 }
