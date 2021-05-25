@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Uporabnik } from 'src/app/classes/uporabnik';
 import { AvtentikacijaService } from 'src/app/services/avtentikacija.service';
+import {OglasiService} from "../../services/oglasi.service";
+import {Oglas} from "../../classes/oglas";
 
 @Component({
   selector: 'app-profile',
@@ -25,10 +27,13 @@ export class ProfileComponent implements OnInit {
     shranjeneRastline: []
   }
 
+  oglasi: Oglas[] =[]
   file1: File
+  rastline: any[] = []
 
   constructor(
-    private avtentikacijaStoritev: AvtentikacijaService
+    private avtentikacijaStoritev: AvtentikacijaService,
+    private oglasiStoritev: OglasiService
   ) { }
 
   public shraniSpremembe() {
@@ -53,11 +58,27 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.rastline = []
     this.avtentikacijaStoritev.vrniTrenutnegaUporabnika()
       .then(uporabnik => {
         this.uporabnik = uporabnik
         console.log(uporabnik)
+        this.oglasiStoritev.pridobiOglase().then(oglasi => {
+          this.oglasi = oglasi.filter(oglas => oglas.idUporabnika == this.uporabnik._id)
+          this.oglasi.forEach(oglas => this.oglasiStoritev.pridobiRastlinoPoId(oglas.idRastline).then(rastlina => {
+            rastlina = rastlina as any
+            rastlina.oglasId = oglas._id
+            console.log(rastlina)
+            this.rastline.push(rastlina)
+          }))
+        })
       })
   }
 
+  odstraniOglas(id) {
+    console.log(id)
+    this.oglasiStoritev.odmakniOglas(id).then(oglas => {
+      this.ngOnInit()
+    })
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { OglasiService } from 'src/app/services/oglasi.service';
+import {Router} from "@angular/router";
 
 interface Kategorija {
   value: number;
@@ -49,7 +50,8 @@ export class AddPlantComponent implements OnInit {
   ];
 
   constructor(
-    private oglasiStoritev: OglasiService
+    private oglasiStoritev: OglasiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -87,6 +89,7 @@ export class AddPlantComponent implements OnInit {
         this.oglasiStoritev.ustvariRastlino(this.rastlina)
           .then(oglas => {
             console.log("Oglas uspesno dodan", oglas)
+            this.router.navigate(["/katalog"])
           })
           .catch(napaka => {
             console.log("Napaka pri dodajanju oglasa", napaka)

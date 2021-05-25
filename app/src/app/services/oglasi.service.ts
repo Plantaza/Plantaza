@@ -169,4 +169,21 @@ export class OglasiService {
       .then(uporabnik => uporabnik as Uporabnik)
       .catch(OglasiService.obdelajNapako);
   }
+
+  odmakniOglas(_id) {
+    const url: string = `${this.apiUrl}/oglas/odmakni`;
+
+
+    const httpLastnosti = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.avtentikacijaService.vrniZeton()}`
+      })
+    };
+
+    return this.http
+      .post(url, {"_id": _id}, httpLastnosti)
+      .toPromise()
+      .then(uporabnik => uporabnik as any)
+      .catch(OglasiService.obdelajNapako);
+  }
 }

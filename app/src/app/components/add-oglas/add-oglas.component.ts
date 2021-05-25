@@ -4,6 +4,7 @@ import { Rastlina } from '../../classes/rastlina';
 import { Uporabnik } from '../../classes/uporabnik';
 import { AvtentikacijaService } from '../../services/avtentikacija.service';
 import { OglasiService } from '../../services/oglasi.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-oglas',
@@ -39,7 +40,8 @@ export class AddOglasComponent implements OnInit {
 
   constructor(
     private oglasiStoritev: OglasiService,
-    private avtentikacijaStoritev: AvtentikacijaService
+    private avtentikacijaStoritev: AvtentikacijaService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -86,6 +88,7 @@ export class AddOglasComponent implements OnInit {
       this.oglasiStoritev.objaviOglas(this.oglas)
         .then(() => {
           console.log("Oglas uspesno dodan")
+          this.router.navigate(["/profile"])
         })
         .catch(error => {
           console.log("Napaka pri dodajanju oglasa", error)
@@ -103,6 +106,7 @@ export class AddOglasComponent implements OnInit {
         this.oglasiStoritev.objaviOglas(this.oglas)
           .then(() => {
             console.log("Oglas uspesno dodan")
+            this.router.navigate(["/profile"])
           })
           .catch(error => {
             console.log("Napaka pri dodajanju oglasa", error)

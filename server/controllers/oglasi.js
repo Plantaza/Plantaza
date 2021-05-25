@@ -64,11 +64,12 @@ const oglasiPreberiIzbranega = (req, res) => {
       });
 };
 
-const oglasiIzbrisiIzbranega = (req, res) => {
-  const {idOglasa} = req.params;
-  if (idOglasa) {
+const odmakniOglas = (req, res) => {
+
+    console.log(req)
+  if (req.body._id) {
       Oglasi
-          .findByIdAndRemove(idOglasa)
+          .findByIdAndRemove(req.body._id)
           .exec((napaka) => {
               if (napaka) {
                   return res.status(500).json(napaka);
@@ -174,8 +175,8 @@ module.exports = {
   oglasiSeznam,
   oglasiUporabnika,
   oglasiPreberiIzbranega,
-  oglasiIzbrisiIzbranega,
   oglasiKreiraj,
     zavrniOglas,
-    sprejmiOglas
+    sprejmiOglas,
+    odmakniOglas
 }

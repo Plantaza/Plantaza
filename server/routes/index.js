@@ -64,13 +64,13 @@ router.get('/oglas/all', ctrlOglasi.oglasiSeznam);
 
 router.get('/oglas/:id', ctrlOglasi.oglasiPreberiIzbranega);
 
-router.get('/oglas/izbrisi/:id', ctrlOglasi.oglasiIzbrisiIzbranega);
-
 router.post('/oglas/uporabnik/:id', ctrlOglasi.oglasiUporabnika);
 
 router.post('/oglas/sprejmi', ctrlOglasi.sprejmiOglas)
 
 router.post('/oglas/zavrni', ctrlOglasi.zavrniOglas)
+
+router.post('/oglas/odmakni', ctrlOglasi.odmakniOglas)
 
 /**
  * Routes for klepet
